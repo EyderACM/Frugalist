@@ -9,4 +9,4 @@ Repositorio de documentos del Equipo 1 para la asignatura "Programación Estruct
 
 ---
 
-[Clickea aquí para ver los algoritmos](https://eyderacm.github.io/Equipo-Eyder-PE/)
+## [Clickea aquí para ver los algoritmos](https://eyderacm.github.io/Equipo-Eyder-PE/)
