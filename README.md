@@ -8,3 +8,5 @@ Repositorio para el equipo 1 de la asignatura "Programación Estructurada" de la
 + Jimmy Nathan Ojeda Arana <br>
 
 ---
+
+[Clickea aquí para ver los algoritmos](https://eyderacm.github.io/Equipo-Eyder-PE/)
