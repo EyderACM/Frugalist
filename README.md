@@ -1,6 +1,6 @@
 # Equipo-Eyder-PE
 
-Repositorio para el equipo 1 de la asignatura "Programación Estructurada" de la Facultad de Matemáticas (UADY) impartida por el profesor Edgar Cambranes Martínez
+Repositorio de documentos del Equipo 1 para la asignatura "Programación Estructurada" de la Facultad de Matemáticas (UADY) impartida por el Profesor Edgar Cambranes Martínez
 
 ### Equipo compuesto por:
 + Eyder Antonio Concha Moreno <br>
@@ -8,3 +8,5 @@ Repositorio para el equipo 1 de la asignatura "Programación Estructurada" de la
 + Jimmy Nathan Ojeda Arana <br>
 
 ---
+
+## [Clickea aquí para ver los algoritmos](https://eyderacm.github.io/Equipo-Eyder-PE/)
