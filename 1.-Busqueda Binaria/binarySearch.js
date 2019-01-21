@@ -33,6 +33,6 @@ function binarySearch(array, value) {
 console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 2)); // I guessed It, it is: 2 in the index: 1
 console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 12)); // There was an error 
 
-
+//hola, solo pruebo el fork xddddd
 
 
