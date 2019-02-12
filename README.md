@@ -4,8 +4,9 @@ Repositorio de documentos del Equipo 1 para la asignatura "Programación Estruct
 
 ### Equipo compuesto por:
 + Eyder Antonio Concha Moreno <br>
-+ Daniel Eduardo Gutiérrez Delfín <br>
-+ Jimmy Nathan Ojeda Arana <br>
++ Jorge Chí León <br>
++ Luis Gerardo León Ortega <br>
++ Rodrigo Hernández Góngora <br>
 
 ---
 
