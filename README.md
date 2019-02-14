@@ -1,4 +1,4 @@
-# Equipo-Eyder-PE
+# Equipo-TeamBiriche-PE
 
 Repositorio de documentos del Equipo 1 para la asignatura "Programación Estructurada" de la Facultad de Matemáticas (UADY) impartida por el Profesor Edgar Cambranes Martínez
 
