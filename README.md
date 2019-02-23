@@ -291,5 +291,7 @@ Para complementar a la etapa de “Scrum Review”, se realizarán reuniones no 
     El Daily Scrum será una reunión realizada diariamente, que tendrá una duración de 15 a 30 minutos. 
 
 ## 6. Trabajo en equipo
+## 6.1 Metrica para medición de avance
+El avance será medido con base en las funciones que se le agruegen al producto. Por ejemplo, añadirle un algoritmo de busqueda, conectar la app con el API, etc. 
 
 ## 7. Construcción
