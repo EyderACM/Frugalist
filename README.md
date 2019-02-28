@@ -1,8 +1,7 @@
 # **Frugalist**
 Repositorio de documentos del Equipo 1 para la asignatura "Programación Estructurada" de la Facultad de Matemáticas (UADY) impartida por el Profesor Edgar Cambranes Martínez
 
-### Mienbros del equipo:
-
+### Equipo compuesto por:
 + **Eyder Antonio Concha Moreno**  <br>
 + **Jorge Chí León** <br>
 + **Luis Gerardo León Ortega** <br>
