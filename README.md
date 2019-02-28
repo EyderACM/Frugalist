@@ -8,7 +8,6 @@ Repositorio de documentos del Equipo 1 para la asignatura "Programación Estruct
 + Luis Gerardo León Ortega <br>
 + Rodrigo Hernández Góngora <br>
 
-[Clickea aquí para ver los algoritmos](https://eyderacm.github.io/Equipo-Eyder-PE/)
 
 ***
 
