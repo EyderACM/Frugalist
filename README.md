@@ -1,7 +1,8 @@
 # **Frugalist**
 Repositorio de documentos del Equipo 1 para la asignatura "Programación Estructurada" de la Facultad de Matemáticas (UADY) impartida por el Profesor Edgar Cambranes Martínez
 
-### Equipo compuesto por:
+### Mienbros del equipo:
+
 + **Eyder Antonio Concha Moreno**  <br>
 + **Jorge Chí León** <br>
 + **Luis Gerardo León Ortega** <br>
@@ -260,6 +261,7 @@ Usuario: Persona que usa el sistema.
 
 ### 4.4 Casos de uso
 
+***
 **CU01**: Busqueda por fotografia. <br>
 **Descripcion**: El usuario busca el precio de un producto de la canasta básica por fotografía para saber donde le conviene más comprar. <br>
 **Secuencia**:
@@ -322,10 +324,9 @@ Usuario: Persona que usa el sistema.
 **Salidas alternativas:**
  2. Si el usuario desea cancelar la acción se regresa a la pantalla principal.
  3. Si el usuario desea cancelar la acción se regresa a la pantalla principal.
-
-<br>
- 
+***
 *Nota: Al abrir la aplicación se muestra la página principal siempre.*
+
 ####  4.4.1 Diagrama de casos de uso
 
 [imagen1 - CU01]
@@ -338,22 +339,23 @@ Usuario: Persona que usa el sistema.
 
 #### 4.5.1 Historias de Usuario
 
-HU01 - Inicio del sistema
-Como: Usuario
-Quiero: Visualizar que el sistema inicie con una imagen característica
-Para: Ingresar al sistema
-Condiciones:
--   El tamaño de la imagen deberá ser óptimo para todos los dispositivos (Deberá estar en todas los tamaños necesarios)
--   Deberá tener el lema del servicio
+***
+
+**HU01** - Inicio del sistema
+**Como:** Usuario
+**Quiero:** Visualizar que el sistema inicie con una imagen característica
+**Para:** Ingresar al sistema
+**Condiciones:**
+1. El tamaño de la imagen deberá ser óptimo para todos los dispositivos (Deberá estar en todas los tamaños necesarios)
+2. Deberá tener el lema del servicio
     
 ***
   
-HU02 -  Pantalla de Inicio
-Como: Usuario
-Quiero: Seleccionar las diversas opciones de búsqueda en una pantalla
-principal
-Para: Saber que tipos de búsqueda realizar
-Condiciones:
+**HU02** -  Pantalla de Inicio
+**Como:** Usuario
+**Quiero:** Seleccionar las diversas opciones de búsqueda en una pantalla principal
+**Para:** Saber que tipos de búsqueda realizar
+**Condiciones:**
 -   Deberá mostrar las dos opciones de búsqueda (texto y foto)
 -   Deberá contar con una opción para acceder al carrito de compras
 -   Debe tener una imagen representativa del sistema
@@ -361,7 +363,7 @@ Condiciones:
     
 ***
 
-HU03 - Búsqueda por texto
+**HU03** - Búsqueda por texto
 Como: Usuario
 Quiero: Buscar un producto escribiendo su nombre, o su presentación.
 Para: Saber su precio
@@ -371,102 +373,76 @@ Condiciones:
     
 ***
 
-HU04 - Búsqueda por imagen
-Como: Usuario
-Quiero: Buscar un producto con una fotografía del mismo
-Para: Saber su precio
-Condiciones:
+**HU04** - Búsqueda por imagen
+**Como:** Usuario
+**Quiero:** Buscar un producto con una fotografía del mismo
+**Para:** Saber su precio
+**Condiciones:**
 -   El usuario podrá capturar una fotografía del producto
 -   El usuario podrá capturar la fotografía de un producto con etiqueta o sin etiqueta
   
   ***
 
-HU05 - Precios de productos
-Como: Usuario
-Quiero: Visualizar el precio de producto buscado
-Para: Saber en que lugar comprar
-Condiciones:
+**HU05** - Precios de productos
+**Como:** Usuario
+**Quiero:** Visualizar el precio de producto buscado
+**Para:** Saber en que lugar comprar
+**Condiciones:**
 -   Deberán mostrarse los productos ordenados conforme al precio.
 -   El usuario podrá seleccionar entre distintos parámetros entre ellos: un supermercado en particular y una categoría de producto.
 -   El usuario podrá añadir un producto a su carrito de compra
     
  ***
  
-HU06 - Carrito de compras
-Como: Usuario
-Quiero: Visualizar el costo total de los productos seleccionados
-Para: Saber el ahorro de mi carrito de compras
-Condiciones:
+**HU06** - Carrito de compras
+**Como:** Usuario
+**Quiero:** Visualizar el costo total de los productos seleccionados
+**Para:** Saber el ahorro de mi carrito de compras
+**Condiciones:**
 -   El usuario podrá visualizar el coste total de múltiples productos en diferentes supermercados.
 -   El usuario podrá seleccionar los supermercados de los cuales desea visualizar el precio.
 -   El usuario podrá añadir o quitar ítems de la lista del carrito.
 
 #### 4.5.2 Product Backlog
 
-[https://docs.google.com/spreadsheets/d/1JUcAUXYVMxapeXlcMeodk5aaJgzYbr5WMM8Dc8G8FN4/edit#gid=0](https://docs.google.com/spreadsheets/d/1JUcAUXYVMxapeXlcMeodk5aaJgzYbr5WMM8Dc8G8FN4/edit#gid=0)
+https://docs.google.com/spreadsheets/d/1JUcAUXYVMxapeXlcMeodk5aaJgzYbr5WMM8Dc8G8FN4/edit#gid=0
 
-***
+### 5. Proceso de desarrollo
 
-## 5. Proceso de desarrollo
+#### 5.1 Herramientas
 
-### 5.1 Herramientas
-
-#### 5.1.1 Herramientas de Requerimientos
+##### 5.1.1 Herramientas de Requerimientos
 
 - Asana
-
 - Google Sheets
-
 - Google Drive
-
-  
-
+ 
 #### 5.1.2 Herramientas de Diseño
 
 - Figma
-
 - Google Slides
-
 - LucidChart (UML)
-
-  
 
 ### 5.1.3 Herramientas de Construcción-
 
 - Git y Github
-
 - Node Package Manager
-
 - Profeco API
-
 - Google Cloud Vision API
-
 - Visual Studio Code
-
 - React Native (Javascript)
-
 - Expo
-
 - Genymotion
-
 - Smartphone
-
-  
 
 #### 5.1.4 Herramientas para Testing y Documentación
 
 - Jest
-
 - Docz
-
   
-
 #### 5.1.5 Herramientas para Comunicación
 
 - Slack
-
-  
-  
 
 ### 5.2 Métodos
 
@@ -477,19 +453,16 @@ Estas herramientas serán utilizadas para la gestión y el control de requerimie
   
 
 a) Asana
-
 Esta herramienta será utilizada para la calendarización y asignación de tareas con respecto al proyecto durante el transcurso del mismo, cubriendo de esta manera todas las áreas en han de ser realizadas en los diversos aspectos del proyecto.
 
   
 
 b) Google Sheets
-
 Será utilizada para la realización de un reporte del avance semanal de cada integrante con respecto a los requerimientos del proyecto.
 
   
 
 c) Google Drive
-
 Será utilizado para el almacenamiento de todo documento generado durante el transcurso del proyecto, de esta manera proporcionando un espacio para toda la documentación relacionada con el proyecto.
 
   
@@ -497,19 +470,12 @@ Será utilizado para el almacenamiento de todo documento generado durante el tra
 #### 5.2.2 Diseño
 
 a) Figma
-
 Se utilizará para la creación de Mock-ups de la interfaz de usuario, de esta forma proporcionando una idea general de la apariencia de la aplicación, la cual será usada como referencia para el desarrollo del apartado visual del proyecto.
 
-  
-
 b) Google Slides
-
 Esta herramienta será utilizada para la elaboración de presentaciones relacionadas con el avance y explicación del proyecto ante una audiencia, de esta manera proporcionando un artefacto para la exhibición del proyecto.
 
-  
-
 c) LucidChart (UML)
-
 Se utilizará para la creación de diagramas, los cuales facilitarán la comprensión de los diversos casos de uso del proyecto proporcionando otro medio para su visualización.
 
   
@@ -517,53 +483,30 @@ Se utilizará para la creación de diagramas, los cuales facilitarán la compren
 #### 5.2.3 Construcción
 
 a) Git y Github
-
 Serán utilizados para el control de versiones del proyecto, esto proporcionando una plataforma para la gestión y visualización de la participación de cada miembro del equipo en el apartado técnico del proyecto, al igual que el control de versiones y avances durante el desarrollo del proyecto.
 
-  
-
 b) Node Package Manager
-
 Este gestor de paquetes será utilizado para la implementación de herramientas relacionadas con la construcción y documentación del proyecto.
 
-  
-
 c) Profeco API
-
 Será utilizada para la obtención de datos de los diversos productos buscados por los usuarios, al igual que representará un marco de referencia para el análisis de fotografías de promociones capturadas por los mismos.
 
-  
-
 d) Google Cloud Vision API
-
 Se utilizará para el reconocimiento de productos, la API generará una etiqueta con el texto correspondiente, representando al producto, o a la etiqueta del mismo en caso de tener una, la cual se pasará a la API de profeco.
 
-  
-
 e) Visual Studio Code
-
 Es el editor de texto que se utilizará para el desarrollo de la aplicación.
 
-  
-
 f) React Native
-
 Framework de Javascript que se utilizará para el desarrollo de la aplicación, permite desarrollar en móvil mediante la creación de componentes que representan elementos de la aplicación.
 
 g) Expo
-
 Herramienta que funciona con React Native, te permite acceder a las funcionalidades del dispositivo móvil, como la cámara, notificaciones y GPS, al igual que facilita la distribución en las diferentes tiendas virtuales de aplicaciones.
 
-  
-
 h) Genymotion
-
 Se usará para emular un dispositivo móvil, permitiendo verificar el rendimiento de la aplicación.
 
-  
-
 i) Smartphone
-
 Se utilizará para las pruebas del funcionamiento general de la aplicación, rendimiento, cámara, GPS, entre otros.
 
   
@@ -571,26 +514,20 @@ Se utilizará para las pruebas del funcionamiento general de la aplicación, ren
 #### 5.2.4 Herramientas para testing y documentación
 
 a) Jest
-
 Será utilizado para el testing de los diferentes apartados de la aplicación, Jest permite simular peticiones de API, facilitando la prueba de los posibles casos de error.
 
-  
-
 b) Docz
-
-Docz se utilizará para la documentación de los diversos componentes que utilizará React Native, esto permitiendo la creación de una documentación basada en JsDoc, sin limitarse a Javascript Vanilla.
-
-  
+Docz se utilizará para la documentación de los diversos componentes que utilizará React Native, esto permitiendo la creación de una documentación basada en JsDoc, sin limitarse a Javascript Vanilla.  
 
 #### 5.2.5 Herramientas para la comunicación
 
 a) Slack
-
 Slack ser la forma principal de comunicación durante el transcurso del proyecto, herramienta en la cual se crearán múltiples canales para discutir diversos aspectos del proyecto y su desarrollo.
 
-###q 5.3 Procesos
+### 5.3 Procesos
+Para este proyecto se ha determinado que la metodología a utilizar será Scrum, por lo tanto, los distintos pasos que conforman el proceso general, tendrán un enfoque iterativo, por consecuente, estos serán realizado en más de una ocasión.
 
-### 1.Análisis de Requerimientos y definición de problemática (Product Backlog)
+1.-Análisis de Requerimientos y definición de problemática (Product Backlog)
 
 Durante esta etapa el equipo de trabajo realizará una reunión presencial para acordar y definir la problemática en cuestión, una vez definido el contexto y contemplados los puntos críticos de la problemática de interés comenzará la concepción de requerimientos para el desarrollo del sistema, para lo cual será requerida la concepción de una solución moderna, y eficiente para la población actual en México.
 
@@ -602,7 +539,8 @@ El equipo realizará la documentación de los elementos clave del proyecto en un
 
   
 
-Contexto del equipo:
+-   Contexto del equipo:
+    
 
 El equipo optó por el desarrollo de Frugalist, una aplicación destinada al ahorro y a la compra consciente en productos de supermercados en México, muchas de las personas desconocen la diferencia de precios en los distintos supermercados de su localidad, lo que lleva a una compra inconsciente, el desarrollo de Frugalist proporciona a la población Mexicana una herramienta para comparar el precio de uno, o varios productos de la canast básica de productos establecida por la INEGI.
 
@@ -612,39 +550,115 @@ Por esta razón, el equipo concluyó que Frugalist representa una solución a es
 
   
 
-### 2.Sprint Planning
+2.- Sprint Planning
 
 Durante esta etapa se definirán los ítems que serán desarrollados durante la siguiente iteración (Sprint). Será necesario una reunión formal del equipo, donde se dividirán los diferentes ítems entre cada integrante, y se determinará la duración del sprint (la cual, será de una a dos semanas). De la misma manera, para asignar los distintos ítems, será necesario una estimación de la duración de los mismos, para esto, se utilizará la técnica “Planning poker”, en la que todo el equipo discutirá el tiempo esperado para la implementación del Sprint y cada ítem, hasta llegar a un acuerdo. Para el Sprint planning será utilizada la herramienta Asana para el agendado y división de los diferentes ítems del proyecto, los cuales serán representados como tickets.
 
 En esta etapa se buscará responder las siguientes preguntas:
 
-¿Qúe se puede hacer en este Sprint?
+1.  ¿Qúe se puede hacer en este Sprint?
+    
 
 Se definirá la funcionalidad a desarrollar, y los ítems que serán necesarios realizar para su implementación. Tras la definición de los mismos, el equipo definirá una meta para el Sprint, la cual representará una guía para la implementación del Sprint, y una razón para la construcción del incremento.
 
-¿Cómo se llevará a cabo?
+2.  ¿Cómo se llevará a cabo?
+    
 
 Una vez establecida la meta del Sprint, el equipo definirá qué ha de ser realizado para considerar la implementación “terminada”, para lo cual será necesario descomponer las tareas asignadas a cada integrante para comprender y fundamentar las actividades de cada miembro del equipo.
 
-¿Cúal es la Meta del Sprint?
+3.  ¿Cúal es la Meta del Sprint?
+    
 
 Representa los ítems necesarios para el desarrollo de una funcionalidad en un Sprint. La definición de una meta del Sprint proporciona al equipo flexibilidad cuando se trata la implementación de la funcionalidad, y sirve como guía para el desarrollo de la misma.
 
+4.  ¿Cuál es la definición de hecho?
+    
+
+Se definirán cuales son las condiciones a cumplir de cada ítem para ser considerado hecho, de esta manera asegurando un incremento de producto apropiado.
+
   
 
-### 3.Construcción del proyecto (Sprint)
+3.- Construcción del proyecto (Sprint)
 
 Durante esta etapa, el equipo trabajará en el desarrollo de la aplicación basados en el sprint planning definido con anterioridad. Es importante notar que durante esta etapa no se realizará ningún cambio a los ítems determinados o a la meta del Sprint sin antes ser consultado con el equipo. De la misma manera, se tomarán en consideración las siguientes reglas:
 
-El sprint deberá durar de 1 a 3 semanas, no más.
-
-Para complementar a la etapa de “Scrum Review”, se realizarán reuniones no presenciales al final de cada semana, estas para discutir el avance realizado por el equipo, en qué aspectos puede mejorar, y qué ítems deberán ser alterados para garantizar la compleción de la meta definida.
+1.  El sprint deberá durar de 1 a 3 semanas, no más.
+    
+2.  Para complementar a la etapa de “Scrum Review”, se realizarán reuniones no presenciales al final de cada semana, estas para discutir el avance realizado por el equipo, en qué aspectos puede mejorar, y qué ítems deberán ser alterados para garantizar la compleción de la meta definida.
+    
 
   
 
-### 4.Daily Scrum
+4.- Daily Scrum
 
-El Daily Scrum será una reunión realizada diariamente, que tendrá una duración de 15 a 30 minutos.
+El Daily Scrum será una reunión realizada diariamente, que tendrá una duración de 15 a 30 minutos. El objetivo del Daily Scrum es reflexionar e idear un plan a realizar para las siguientes 24 horas. Esto se hará inspeccionando el trabajo realizado desde el último Daily Scrum, y respondiendo una serie de preguntas para asegurar un avance adecuado, las preguntas son las siguientes:
+
+1.  ¿Qué hice ayer para ayudar al equipo a acercarse a la meta del Sprint?
+    
+2.  ¿Qué haré hoy para acercar al equipo a la meta?
+    
+3.  ¿Existe algún impedimento que me dificulte a mi, o al equipo el alcanzar la meta del Sprint?
+    
+
+  
+
+Uno de los aspectos más importantes del Daily Scrum, es que permitirá al equipo a entender cómo trabajar en conjunto, como un equipo auto-organizado hacia una meta.
+
+  
+
+5.- Sprint Review
+
+Representa una reunión que se realizará al final de cada Sprint para examinar el incremento con respecto al Product Backlog. Con base a los cambios en el Product Backlog durante el sprint se discutirán las medidas necesarias para optimizar el valor generado. Esta etapa incluye los siguientes elementos:
+
+1.  Tendrá una duración de 1 a 2 horas (ésta dependiendo de la duración del sprint).
+    
+2.  Se hará una revisión de los ítems “hechos” y “no hechos”.
+    
+3.  El equipo de desarrollo discutirá todo lo que fue elaborado adecuadamente durante el Sprint, los problemas encontrados, y cómo lidiaron con éstos.
+    
+4.  Se expone el trabajo realizado y se responden preguntas acerca del incremento.
+    
+5.  Con base al progreso realizado, se estiman fechas para la compleción del siguiente Sprint con base a los ítems en el Product Backlog.
+    
+6.  En caso de haberlos, se realizan los cambios necesarios al Product Backlog para garantizar un desarrollo óptimo del producto.
+    
+6.- Sprint Retrospective
+
+Consiste en una reunión formal cuyo propósito es examinar la forma de trabajo del equipo durante el desarrollo del producto en el Sprint anterior, los aspectos siendo los siguientes:
+
+1.  Inspección del Sprint anterior con respecto a la comunicación, proceso, métodos y herramientas.
+    
+2.  Identificar y ordenar los ítems que se realizaron correctamente según su importancia.
+    
+3.  Creación de un plan para la implementación de mejoras con respecto al proceso de trabajo del equipo.
+    
+4.  Se buscan formas de optimizar la calidad del producto redefiniendo el significado de “hecho”.
+
+### 5.4 Productos y Artefactos
+
+Product Backlog
+
+El Product Backlog es una lista ordenada de todo lo que será necesario realizar para el producto, esto representado como historias de usuario, las cuales son llamadas “ítems”, esta lista representa una guía a seguir durante el desarrollo general del proyecto, seleccionando de forma específica un número determinado de ítems los cuales se desarrollaran a lo largo de un Sprint. Un número determinado de ítems será definido en la etapa de “Sprint planning”, anterior a cada sprint.
+
+El product backlog está compuesto por los requerimientos principales para el desarrollo del producto, es dinámico y está en constante cambio durante el transcurso del proyecto, los cambios que se verán reflejados en esté serán todos los cambios relacionados con los requerimientos, herramientas, o métodos utilizados.
+
+  
+
+Sprint Backlog
+
+Es un set de ítems del Product Backlog seleccionados para el Sprint, junto con un plan para la entrega del incremento y el cumplimiento de la meta definida. El sprint backlog define el trabajo necesario a realizar por el equipo para llevar los ítems a un estado de “hecho”. El Sprint backlog se encargará de hacer visible todo el trabajo necesario para alcanzar el objetivo del Sprint.
+
+  
+
+Incremento (documento)
+
+El incremento es la suma de todos los ítems completados durante un sprint y todos los sprint anteriores, junto con la definición de “hecho”, la cual justifica la entrega de cada ítem en el Sprint, cualidad la cual cada Sprint debe cumplir para formar parte del incremento.
+
+  
+
+Incremento (aplicación)
+
+Representa una nueva versión usable del producto, la cual contendrá los cambios y funcionalidades añadidas durante el Sprint.
 
   
 
@@ -751,8 +765,6 @@ La bitácora será actualizada después de cada Daily Scrum, adjuntando la fecha
 El lenguaje de programación a utilizar será Javascript, junto con su estándar ES6+.
 
 Además, se implementará con el Framework React.js, y su versión para desarrollo móvil, React Native.
-
-  
 
 7.2 Estándar de codificación
 
