@@ -19,8 +19,7 @@ Repositorio de documentos del Equipo 1 para la asignatura "Programación Estruct
 ### 2. Definición de Proyecto
 
 - 2.1 Metas y Objetivos
-- 2.2 Definiciones
-- 2.3 Entidades de información
+- 2.2 Entidades de información
 
 ### 3. Plan de Proyecto
 
@@ -97,13 +96,7 @@ Entre los objetivos generales de Frugalist podemos identificar los siguientes:
     
 3.  Contribuir al desarrollo del hábito para una compra consciente y efectiva
   
-### 2.2 Definiciones
-
-```
-We don't have information.
-```
-
-### 2.3 Entidades de información
+### 2.2 Entidades de información
 
 Como entidad principal de información usaremos a la Profeco. De ella sacaremos la información de los precios de los artículos de supermercado principalmente, aunque igual podríamos preguntar a sus empleados en caso de que necesitemos algún tipo de información.
 
@@ -147,10 +140,7 @@ Estos roles representan las principales actividades que realizará cada integran
 **Luis León** - *Scrum Team*
 **Rodrigo Hernández** - *Scrum Team*
 
-### 3.3 Tareas
-```
-We don't have information
-```
+
 
 ## 4. Requerimientos
 
@@ -166,7 +156,7 @@ Usuario: Persona que usa el sistema.
 
 ### 4.2 Requerimientos de usuario
 
-1. Los usuarios podrán visualizar y buscar el precio de productos de la canasta básica en los supermercados de su ciudad, la cual podrá ser identificada con el GPS de su teléfono móvil.
+1. Los usuarios podrán visualizar y buscar el precio de productos de la canasta básica en los supermercados de su ciudad.
 
 2. Los usuarios podrán buscar un producto con una fotografía o con el nombre del mismo.
 
@@ -181,81 +171,63 @@ Usuario: Persona que usa el sistema.
 | RF001   |      Pagina principal.      |  
 |----------|:-------------:|
 | Prioridad:| alta |
-| Descripción |  El sistema deberá (estando un usuario activo en la aplicación), mostrar la primera página que deberá ser mostrada es la página página principal. En esta página el usuario podrá buscar un producto de la canasta básica de productos en México de dos formas. Las formas de búsqueda siendo: **1. Introduciendo el nombre del producto deseado 2. Tomando una fotografía del producto**, el usuario podrá seleccionar el municipio en el que se encuentra como parámetro para la búsqueda.|
+| Descripción |-El sistema deberá al iniciar, mostrar la primera 	página que deberá ser mostrada es la página principal (Dashboard). En esta página el usuario podrá buscar un producto de la canasta básica de productos en México de dos formas. Las formas de búsqueda siendo: **<br>a) Introduciendo el nombre del producto deseado <br>** **b) Tomando una fotografía del producto <br>** -El usuario podrá seleccionar el municipio en el que se encuentra como parámetro para la búsqueda.|
 
 ***
 
 | RF002   |      Búsqueda por nombre de producto.     |  
 |----------|:-------------:|
 | Prioridad:| alta |
-| Descripción |  El usuario podrá buscar un producto ingresando su nombre, o el de su presentación.|
+| Descripción |  El sistema podrá buscar un producto ingresando su nombre, o el nombre de su presentación..|
 
 ***
 
 | RF003   |     Búsqueda por fotografía.      |  
 |----------|:-------------:|
 | Prioridad:| alta |
-| Descripción |  El sistema será capaz de procesar una fotografía de un producto de la canasta básica, los productos deberán cumplir los siguientes requisitos: **1.  El producto deberá tener el nombre de forma clara en la fotografía 2.  De ser una fruta o verdura, el producto deberá estar ante una buena iluminación 3.  Solamente un producto podrá estar en la fotografía** |
+| Descripción |  El sistema será capaz de procesar una fotografía de un producto de la canasta básica, los productos deberán cumplir los siguientes requisitos: -El sistema será capaz de procesar una fotografía de un producto de la canasta básica, los productos deberán cumplir los siguientes requisitos: <br> 1.  El producto deberá tener el nombre de forma clara en la fotografía <br> 2.  De ser una fruta o verdura, el producto deberá estar ante una buena iluminación |
 
 ***
 
 | RF004   |     Resultado de búsqueda en lista.      |  
 |----------|:-------------:|
 | Prioridad:| alta |
-| Descripción |  El sistema podrá mostrar los resultados de la búsqueda podrán en forma de lista. Cada producto en la lista deberá contar con la siguiente información: 1.  Precio; 2.  Nombre de Presentación; 3.  Cadena Comercial; 4.  Dirección, -La máxima cantidad de productos en pantalla será de 5, de haber más, el usuario podrá scrollear para visualizar los demás. -Los productos serán mostrados en orden de precio, de menor a mayor. -Cada producto contará con un botón para ser añadido al carrito de compras del usuario -Contará con un apartado en el cual se podrá seleccionar supermercados para filtrar los productos encontrados. |
+| Descripción | -El sistema podrá mostrar los resultados de la búsqueda podrán en forma de lista. Cada producto en la lista deberá contar con la siguiente información: <br>1.  Precio <br> 2.  Nombre de Presentación <br> 3.  Cadena Comercial <br> 4.  Dirección, <br>-Los productos serán mostrados en orden de precio, de menor a mayor. <br> -Cada producto contará con un botón para ser añadido al carrito de compras del usuario <br> -Contará con un apartado en el cual se podrá seleccionar supermercados para filtrar los productos encontrados.. |
 
 ***
 
 | RF005   |     Carrito de compra.      |  
 |----------|:-------------:|
 | Prioridad:| media |
-| Descripción |  El sistema permitirá seleccionar una opción de “carrito de compras”, la cual permitirá visualizar el coste total de los productos en la lista en los distintos supermercados donde los productos se encuentren disponibles. Los productos en el carrito de compras podrán ser seleccionados para visualizar la búsqueda de ese producto nuevamente. |
-
-***
-
-| RF005   |     Carrito de compra.      |  
-|----------|:-------------:|
-| Prioridad:| media |
-| Descripción |  El sistema permitirá seleccionar una opción de “carrito de compras”, la cual permitirá visualizar el coste total de los productos en la lista en los distintos supermercados donde los productos se encuentren disponibles. Los productos en el carrito de compras podrán ser seleccionados para visualizar la búsqueda de ese producto nuevamente. |
+| Descripción |  -El sistema deberá permitir seleccionar una opción de “carrito de compras”, en la cual se visualizará el coste total de los productos en la lista en los distintos supermercados donde los productos se encuentren disponibles. <br> -Los productos en el carrito de compras podrán ser seleccionados para visualizar la búsqueda de ese producto nuevamente.. |
 
 ***
 
 #### 4.3.2 No funcionales
 #### 4.3.2.1 Requerimientos de producto
 
-| RNF001   |     Uso de memoria.      |  
+
+| RNF001   |     Productos aceptados para búsqueda.      |  
 |----------|:-------------:|
-| Descripción |  La cantidad de memoria ocupada por la aplicación: -Ideal: no más de 20MB -Planeado: no más de 50MB -Debe: no más de 100MB Definición MB: Megabyte. |
+| Descripción |  Los productos que podrán comprobarse en la aplicación son los siguientes: <br> -Todos los productos de la canasta básica (excluyendo los añadidos en 2019) establecidos por SEGALMEX. |
 
 ***
 
-| RNF002   |     Precisión de datos.      |  
+| RNF002   |     Cantidad de supermercados.      |  
 |----------|:-------------:|
-| Descripción |  La exactitud de los precios con los supermercados reales: -Todos los precios a mostrar deberán haber sido actualizados en los últimos 10 días. |
+| Descripción |  Los supermercados disponibles en la aplicación: <br>-Los supermercados que formen parte de la API “Quién es él quien en los precios” de la Profeco. |
 
 ***
 
-| RNF003   |     Productos aceptados para búsqueda.      |  
+| RNF003   |     Cantidad de produtos.      |  
 |----------|:-------------:|
-| Descripción |  Los productos que podrán comprobarse en la aplicación son los siguientes: -Todos los productos de la canasta básica (excluyendo los añadidos en 2019) establecidos por INEGI y SEDESOL. |
+| Descripción |  Los productos disponibles en la aplicación: <br>-Los productos en la lista del API de PROFECO que formen parte de la canasta básica Mexicana.. |
 
 ***
 
-| RNF004   |     Tiempo de petición de productos.      |  
+| RNF004   |     Resolución de imagen.      |  
 |----------|:-------------:|
-| Descripción |  El tiempo que la aplicación tardará en mostrar los productos: -Ideal: no más de 1 segundo -Planeado: no más de 2 segundos -Debe: no más de 3 segundos. |
-
-***
-
-| RNF005   |     Cantidad de supermercados.      |  
-|----------|:-------------:|
-| Descripción |  Los supermercados disponibles en la aplicación: -Los supermercados en la lista del API de PROFECO. |
-
-***
-
-| RNF005   |     Cantidad de productos.      |  
-|----------|:-------------:|
-| Descripción |  Los productos disponibles en la aplicación: -Los productos en la lista del API de PROFECO que formen parte de la canasta básica Mexicana. |
+| Descripción |  Las imágenes deberán tener una resolución mínima de 640 x 480 pixeles para funcionar adecuadamente con Google Vision API. |
 
 ***
 
@@ -329,11 +301,7 @@ Usuario: Persona que usa el sistema.
 
 ####  4.4.1 Diagrama de casos de uso
 
-[imagen1 - CU01]
-
-[imagen2 - CU02]
-
-[imagen3 - CU03]
+![](https://lh4.googleusercontent.com/i0s74cwhUJBsNlhCm8a82z96uOR4nY4Qv51P0lVLHcOMF-0mdphklHB-b7Yd05q4myep2IBleTyo_zvgiYIgvTxRNEUYHUjHg_d7tmTNQGmOLW2pM4qz8vD2chUK2wAxSDQHZVO5)
 
 ### 4.5 Product Backlog
 
@@ -423,7 +391,7 @@ https://docs.google.com/spreadsheets/d/1JUcAUXYVMxapeXlcMeodk5aaJgzYbr5WMM8Dc8G8
 - Google Slides
 - LucidChart (UML)
 
-### 5.1.3 Herramientas de Construcción-
+#### 5.1.3 Herramientas de Construcción
 
 - Git y Github
 - Node Package Manager
@@ -527,7 +495,7 @@ Slack ser la forma principal de comunicación durante el transcurso del proyecto
 ### 5.3 Procesos
 Para este proyecto se ha determinado que la metodología a utilizar será Scrum, por lo tanto, los distintos pasos que conforman el proceso general, tendrán un enfoque iterativo, por consecuente, estos serán realizado en más de una ocasión.
 
-1.-Análisis de Requerimientos y definición de problemática (Product Backlog)
+#### 1.-Análisis de Requerimientos y definición de problemática (Product Backlog)
 
 Durante esta etapa el equipo de trabajo realizará una reunión presencial para acordar y definir la problemática en cuestión, una vez definido el contexto y contemplados los puntos críticos de la problemática de interés comenzará la concepción de requerimientos para el desarrollo del sistema, para lo cual será requerida la concepción de una solución moderna, y eficiente para la población actual en México.
 
@@ -550,89 +518,83 @@ Por esta razón, el equipo concluyó que Frugalist representa una solución a es
 
   
 
-2.- Sprint Planning
+#### 2.- Sprint Planning
 
 Durante esta etapa se definirán los ítems que serán desarrollados durante la siguiente iteración (Sprint). Será necesario una reunión formal del equipo, donde se dividirán los diferentes ítems entre cada integrante, y se determinará la duración del sprint (la cual, será de una a dos semanas). De la misma manera, para asignar los distintos ítems, será necesario una estimación de la duración de los mismos, para esto, se utilizará la técnica “Planning poker”, en la que todo el equipo discutirá el tiempo esperado para la implementación del Sprint y cada ítem, hasta llegar a un acuerdo. Para el Sprint planning será utilizada la herramienta Asana para el agendado y división de los diferentes ítems del proyecto, los cuales serán representados como tickets.
 
 En esta etapa se buscará responder las siguientes preguntas:
 
-1.  ¿Qúe se puede hacer en este Sprint?
+* ¿Qúe se puede hacer en este Sprint?
     
 
 Se definirá la funcionalidad a desarrollar, y los ítems que serán necesarios realizar para su implementación. Tras la definición de los mismos, el equipo definirá una meta para el Sprint, la cual representará una guía para la implementación del Sprint, y una razón para la construcción del incremento.
 
-2.  ¿Cómo se llevará a cabo?
+*  ¿Cómo se llevará a cabo?
     
 
 Una vez establecida la meta del Sprint, el equipo definirá qué ha de ser realizado para considerar la implementación “terminada”, para lo cual será necesario descomponer las tareas asignadas a cada integrante para comprender y fundamentar las actividades de cada miembro del equipo.
 
-3.  ¿Cúal es la Meta del Sprint?
+*  ¿Cúal es la Meta del Sprint?
     
 
 Representa los ítems necesarios para el desarrollo de una funcionalidad en un Sprint. La definición de una meta del Sprint proporciona al equipo flexibilidad cuando se trata la implementación de la funcionalidad, y sirve como guía para el desarrollo de la misma.
 
-4.  ¿Cuál es la definición de hecho?
+*  ¿Cuál es la definición de hecho?
     
 
 Se definirán cuales son las condiciones a cumplir de cada ítem para ser considerado hecho, de esta manera asegurando un incremento de producto apropiado.
 
-  
+ 
 
-3.- Construcción del proyecto (Sprint)
+#### 3.- Construcción del proyecto (Sprint)
 
 Durante esta etapa, el equipo trabajará en el desarrollo de la aplicación basados en el sprint planning definido con anterioridad. Es importante notar que durante esta etapa no se realizará ningún cambio a los ítems determinados o a la meta del Sprint sin antes ser consultado con el equipo. De la misma manera, se tomarán en consideración las siguientes reglas:
-
-1.  El sprint deberá durar de 1 a 3 semanas, no más.
+* El sprint deberá durar de 1 a 3 semanas, no más.
     
-2.  Para complementar a la etapa de “Scrum Review”, se realizarán reuniones no presenciales al final de cada semana, estas para discutir el avance realizado por el equipo, en qué aspectos puede mejorar, y qué ítems deberán ser alterados para garantizar la compleción de la meta definida.
+*  Para complementar a la etapa de “Scrum Review”, se realizarán reuniones no presenciales al final de cada semana, estas para discutir el avance realizado por el equipo, en qué aspectos puede mejorar, y qué ítems deberán ser alterados para garantizar la compleción de la meta definida.
     
 
   
 
-4.- Daily Scrum
+#### 4.- Daily Scrum
 
 El Daily Scrum será una reunión realizada diariamente, que tendrá una duración de 15 a 30 minutos. El objetivo del Daily Scrum es reflexionar e idear un plan a realizar para las siguientes 24 horas. Esto se hará inspeccionando el trabajo realizado desde el último Daily Scrum, y respondiendo una serie de preguntas para asegurar un avance adecuado, las preguntas son las siguientes:
 
-1.  ¿Qué hice ayer para ayudar al equipo a acercarse a la meta del Sprint?
+* ¿Qué hice ayer para ayudar al equipo a acercarse a la meta del Sprint?
     
-2.  ¿Qué haré hoy para acercar al equipo a la meta?
+*  ¿Qué haré hoy para acercar al equipo a la meta?
     
-3.  ¿Existe algún impedimento que me dificulte a mi, o al equipo el alcanzar la meta del Sprint?
+*  ¿Existe algún impedimento que me dificulte a mi, o al equipo el alcanzar la meta del Sprint?
     
-
-  
-
 Uno de los aspectos más importantes del Daily Scrum, es que permitirá al equipo a entender cómo trabajar en conjunto, como un equipo auto-organizado hacia una meta.
 
-  
-
-5.- Sprint Review
+#### 5.- Sprint Review
 
 Representa una reunión que se realizará al final de cada Sprint para examinar el incremento con respecto al Product Backlog. Con base a los cambios en el Product Backlog durante el sprint se discutirán las medidas necesarias para optimizar el valor generado. Esta etapa incluye los siguientes elementos:
 
-1.  Tendrá una duración de 1 a 2 horas (ésta dependiendo de la duración del sprint).
+*  Tendrá una duración de 1 a 2 horas (ésta dependiendo de la duración del sprint).
     
-2.  Se hará una revisión de los ítems “hechos” y “no hechos”.
+*  Se hará una revisión de los ítems “hechos” y “no hechos”.
     
-3.  El equipo de desarrollo discutirá todo lo que fue elaborado adecuadamente durante el Sprint, los problemas encontrados, y cómo lidiaron con éstos.
+*  El equipo de desarrollo discutirá todo lo que fue elaborado adecuadamente durante el Sprint, los problemas encontrados, y cómo lidiaron con éstos.
     
-4.  Se expone el trabajo realizado y se responden preguntas acerca del incremento.
+*  Se expone el trabajo realizado y se responden preguntas acerca del incremento.
     
-5.  Con base al progreso realizado, se estiman fechas para la compleción del siguiente Sprint con base a los ítems en el Product Backlog.
+*  Con base al progreso realizado, se estiman fechas para la compleción del siguiente Sprint con base a los ítems en el Product Backlog.
     
-6.  En caso de haberlos, se realizan los cambios necesarios al Product Backlog para garantizar un desarrollo óptimo del producto.
+*  En caso de haberlos, se realizan los cambios necesarios al Product Backlog para garantizar un desarrollo óptimo del producto.
     
-6.- Sprint Retrospective
+#### 6.- Sprint Retrospective
 
 Consiste en una reunión formal cuyo propósito es examinar la forma de trabajo del equipo durante el desarrollo del producto en el Sprint anterior, los aspectos siendo los siguientes:
 
-1.  Inspección del Sprint anterior con respecto a la comunicación, proceso, métodos y herramientas.
+*  Inspección del Sprint anterior con respecto a la comunicación, proceso, métodos y herramientas.
     
-2.  Identificar y ordenar los ítems que se realizaron correctamente según su importancia.
+*  Identificar y ordenar los ítems que se realizaron correctamente según su importancia.
     
-3.  Creación de un plan para la implementación de mejoras con respecto al proceso de trabajo del equipo.
+*  Creación de un plan para la implementación de mejoras con respecto al proceso de trabajo del equipo.
     
-4.  Se buscan formas de optimizar la calidad del producto redefiniendo el significado de “hecho”.
+*  Se buscan formas de optimizar la calidad del producto redefiniendo el significado de “hecho”.
 
 ### 5.4 Productos y Artefactos
 
@@ -724,11 +686,8 @@ Es importante notar que estos cambios se verán reflejados en el documento propu
 
   
 
-### 6.4 Repositorio
+### [6.4 Repositorio](https://github.com/EyderACM/Equipo-Eyder-PE)
 
-```
-We don't have this information
-```
   
 
 ### 6.5 Métricas
@@ -737,11 +696,11 @@ Las aportaciones serán medidas por medio de una tabla como la que se muestra a 
 
 Métricas de equipo
 
-[https://lh5.googleusercontent.com/P1Wl2rwU9Spvb1HkLukZV7UJv9Z5S5J7oFOwQ03Yi5XExLMB4yLnsW512K8tAl1v9w-VfScEVHXf2PkgGbMy2gEX0l3prhXnuopkgLKU4j4QjRBGAXCJHHdkTSl05SQFz3tmlVQk](https://lh5.googleusercontent.com/P1Wl2rwU9Spvb1HkLukZV7UJv9Z5S5J7oFOwQ03Yi5XExLMB4yLnsW512K8tAl1v9w-VfScEVHXf2PkgGbMy2gEX0l3prhXnuopkgLKU4j4QjRBGAXCJHHdkTSl05SQFz3tmlVQk)
+**![](https://lh3.googleusercontent.com/aHrCMKPYvFWBBjvLn5UMYEu15fDuauU66nIi2LMcE_t-EXRxo1EVBbzpmP5N9_Uz34JyUgOY998o2r9sFrhm49MmYhBYs9YV4nLiQH0OYO40yMtNBW-a7Cd5Zon_tRQTE5gXvsED)**
 
 Esta tabla nos permite comunicar los estados de las iteraciones para una fácil visualización del avance del equipo. Al igual que nos permite determinar cuál era el plan para las iteraciones al inició, y cómo éstas van cambiando a lo largo del desarrollo del proyecto. Las funciones nuevas que se agreguen, las que se eliminen, que sean modificadas o pospuestas a otra iteración serán fácilmente visibles para los integrantes del equipo y para el coach, lo que nos permitirá llevar un registro ágil.
 
-  
+ 
 
 Métricas individuales
 
@@ -753,20 +712,17 @@ El avance individual será medido por medio de “Cycle Time” y “Code covera
 
 La bitácora será actualizada después de cada Daily Scrum, adjuntando la fecha de esta y una descripción de lo logrado durante el periodo que transcurrió entre el anterior Daily Scrum y el actual. El formato de la bitácora será el siguiente:
 
-```
-[Tabla de bitacora]
-```
 
 ## 7. Construcción
-7 Construcción
+### 7 Construcción
 
-7.1 Lenguaje de Programación
+#### 7.1 Lenguaje de Programación
 
 El lenguaje de programación a utilizar será Javascript, junto con su estándar ES6+.
 
 Además, se implementará con el Framework React.js, y su versión para desarrollo móvil, React Native.
 
-7.2 Estándar de codificación
+#### 7.2 Estándar de codificación
 
 Se utilizará el estándar definido por Airbnb, que consiste en lo siguiente:
 
@@ -782,11 +738,11 @@ const  pi  =  3.1416; //good
 
 let  bar = 2;
 ```
-Nombrado de archivos:
+##### Nombrado de archivos:
 
 Para el nombrado de los archivos / classes de nuestro proyecto usaremos la regla CamelCase iniciando todos los archivos con mayúscula
 
-Funciones:
+ ##### Funciones:
 
 Utilizaremos la sintaxis de parámetros por defecto en lugar de mutar los argumentos de la función.
 ```
@@ -934,7 +890,7 @@ function  f4(a =  1) {
 }
 ```
 
-Funciones flecha:
+##### Funciones flecha:
 
 Por reglas de EsLint utilizaremos las funciones flechas nos permitirá tener un sintax consistente y legible
 
@@ -1334,7 +1290,7 @@ return name;
 }
 ```
 
-7.3 Herramienta para documentación
+#### 7.3 Herramienta para documentación
 
 Docz
 
