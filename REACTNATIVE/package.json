@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "prettier": "prettier --single-quote --print-width 80 --trailing-comma all --write **/*.js"
   },
   "dependencies": {
+    "eslint": "^5.15.0",
+    "eslint-config-equimper": "^2.2.2",
+    "eslint-config-prettier": "^4.1.0",
+    "prettier": "^1.16.4",
     "react": "16.6.3",
     "react-native": "0.58.6"
   },
