@@ -1,5 +1,5 @@
 # Backend of Frugalist 
-To run this project type the next commands:
+To run this proyect type the next commands (First time):
 * $npm install
 * $npm run dev
 
