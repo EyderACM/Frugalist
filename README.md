@@ -100,7 +100,7 @@ Entre los objetivos generales de Frugalist podemos identificar los siguientes:
 
 Como entidad principal de información usaremos a la Profeco. De ella sacaremos la información de los precios de los artículos de supermercado principalmente, aunque igual podríamos preguntar a sus empleados en caso de que necesitemos algún tipo de información.
 
-También usaremos como entidad el API de Google Vision, ya que este API nos servirá para implementar la búsqueda por foto, para que sea más agil el proceso de búsqueda.
+También usaremos como entidad el API de Tensorflow light, ya que este API  servirá para implementar la búsqueda por foto, esto agilizando el proceso de búsqueda.
 
 Por último están los consumidores, ya que estos podrían registrar las ofertas que haya en algún supermercado para que otras personas puedan aprovecharlas.
 
@@ -135,8 +135,8 @@ El otro apartado a tratar (Apartado técnico) está relacionado con el factor in
 
 Estos roles representan las principales actividades que realizará cada integrante del equipo siguiendo la metodología Scrum, dado que las tareas y roles específicos serán definidos antes de cada Sprint, en este apartado se detallan los roles fundamentales.
 
-**Eyder Concha** - *Scrum Master/Product Owner/Scrum Team*
-**Jorge Chí** - *Scrum Team*
+**Eyder Concha** - *Product Owner/Scrum Team*
+**Jorge Chí** - *Scrum Team/Scrum Master*
 **Luis León** - *Scrum Team*
 **Rodrigo Hernández** - *Scrum Team*
 
@@ -168,7 +168,7 @@ Usuario: Persona que usa el sistema.
 
 #### 4.3.1 Funcionales
 
-| RF001   |      Pagina principal.      |  
+| RF001   |      Pagina principal (Dashboard).      |  
 |----------|:-------------:|
 | Prioridad:| alta |
 | Descripción |-El sistema deberá al iniciar, mostrar la primera 	página que deberá ser mostrada es la página principal (Dashboard). En esta página el usuario podrá buscar un producto de la canasta básica de productos en México de dos formas. Las formas de búsqueda siendo: **<br>a) Introduciendo el nombre del producto deseado <br>** **b) Tomando una fotografía del producto <br>** -El usuario podrá seleccionar el municipio en el que se encuentra como parámetro para la búsqueda.|
@@ -349,20 +349,8 @@ Condiciones:
 -   El usuario podrá capturar una fotografía del producto
 -   El usuario podrá capturar la fotografía de un producto con etiqueta o sin etiqueta
   
-  ***
-
-**HU05** - Precios de productos
-**Como:** Usuario
-**Quiero:** Visualizar el precio de producto buscado
-**Para:** Saber en que lugar comprar
-**Condiciones:**
--   Deberán mostrarse los productos ordenados conforme al precio.
--   El usuario podrá seleccionar entre distintos parámetros entre ellos: un supermercado en particular y una categoría de producto.
--   El usuario podrá añadir un producto a su carrito de compra
-    
- ***
- 
-**HU06** - Carrito de compras
+  
+**HU05** - Carrito de compras
 **Como:** Usuario
 **Quiero:** Visualizar el costo total de los productos seleccionados
 **Para:** Saber el ahorro de mi carrito de compras
@@ -394,19 +382,19 @@ https://docs.google.com/spreadsheets/d/1JUcAUXYVMxapeXlcMeodk5aaJgzYbr5WMM8Dc8G8
 #### 5.1.3 Herramientas de Construcción
 
 - Git y Github
-- Node Package Manager
+- Tensorflow Lite API
 - Profeco API
-- Google Cloud Vision API
 - Visual Studio Code
-- React Native (Javascript)
-- Expo
+- Flutter
+- Dart
+- Android Studio
 - Genymotion
 - Smartphone
 
 #### 5.1.4 Herramientas para Testing y Documentación
 
-- Jest
-- Docz
+- Flutter integrated tests
+- Dart doc
   
 #### 5.1.5 Herramientas para Comunicación
 
@@ -459,17 +447,17 @@ Este gestor de paquetes será utilizado para la implementación de herramientas 
 c) Profeco API
 Será utilizada para la obtención de datos de los diversos productos buscados por los usuarios, al igual que representará un marco de referencia para el análisis de fotografías de promociones capturadas por los mismos.
 
-d) Google Cloud Vision API
+d) Tensorflow API
 Se utilizará para el reconocimiento de productos, la API generará una etiqueta con el texto correspondiente, representando al producto, o a la etiqueta del mismo en caso de tener una, la cual se pasará a la API de profeco.
 
 e) Visual Studio Code
 Es el editor de texto que se utilizará para el desarrollo de la aplicación.
 
-f) React Native
-Framework de Javascript que se utilizará para el desarrollo de la aplicación, permite desarrollar en móvil mediante la creación de componentes que representan elementos de la aplicación.
+f) Flutter
+SDK utilizado para el desarrollo de la aplicación nativa en Android y Ios, será el recurso principal utilizado para la construcción.
 
-g) Expo
-Herramienta que funciona con React Native, te permite acceder a las funcionalidades del dispositivo móvil, como la cámara, notificaciones y GPS, al igual que facilita la distribución en las diferentes tiendas virtuales de aplicaciones.
+g) Dart
+Lenguaje de programación utilizado para el desarrollo de la aplicación, el cual se utilizará junto con el sdk de Flutter.
 
 h) Genymotion
 Se usará para emular un dispositivo móvil, permitiendo verificar el rendimiento de la aplicación.
@@ -481,11 +469,11 @@ Se utilizará para las pruebas del funcionamiento general de la aplicación, ren
 
 #### 5.2.4 Herramientas para testing y documentación
 
-a) Jest
-Será utilizado para el testing de los diferentes apartados de la aplicación, Jest permite simular peticiones de API, facilitando la prueba de los posibles casos de error.
+a) Flutter integrated testing
+Será utilizado para el testing de los diferentes apartados de la aplicación, permitirá simular peticiones de API, facilitando la prueba de los posibles casos de error.
 
-b) Docz
-Docz se utilizará para la documentación de los diversos componentes que utilizará React Native, esto permitiendo la creación de una documentación basada en JsDoc, sin limitarse a Javascript Vanilla.  
+b) Dartdoc
+Dartdoc se utilizará para la documentación de los diversos componentes que utilizará Flutter, esto permitiendo la creación de una documentación compatible con los Widget de Flutter.  
 
 #### 5.2.5 Herramientas para la comunicación
 
@@ -602,7 +590,7 @@ Product Backlog
 
 El Product Backlog es una lista ordenada de todo lo que será necesario realizar para el producto, esto representado como historias de usuario, las cuales son llamadas “ítems”, esta lista representa una guía a seguir durante el desarrollo general del proyecto, seleccionando de forma específica un número determinado de ítems los cuales se desarrollaran a lo largo de un Sprint. Un número determinado de ítems será definido en la etapa de “Sprint planning”, anterior a cada sprint.
 
-El product backlog está compuesto por los requerimientos principales para el desarrollo del producto, es dinámico y está en constante cambio durante el transcurso del proyecto, los cambios que se verán reflejados en esté serán todos los cambios relacionados con los requerimientos, herramientas, o métodos utilizados.
+El Product backlog está compuesto por los requerimientos principales para el desarrollo del producto, es dinámico y está en constante cambio durante el transcurso del proyecto, los cambios que se verán reflejados en esté serán todos los cambios relacionados con los requerimientos, herramientas, o métodos utilizados.
 
   
 
@@ -661,7 +649,7 @@ En este canal se reportarán los errores encontrados en el sistema, al igual que
 
 El monitoreo del equipo estará contenido en el Daily Scrum, donde tras terminar la reunión, se realizará un reporte con los cambios y aportes realizados ese día.
 
-Al terminar la reunión semanal (la cual fue definida con anterioridad), el equipo elaborará una bitácora con el avance del proyecto, este representandose en ítems completados.
+Al terminar la reunión semanal (la cual fue definida con anterioridad), el equipo elaborará una bitácora con el avance del proyecto, este representándose en ítems completados.
 
 Finalmente, se realizará una bitácora general del Sprint, los ítems realizados a lo largo del mismo, y las metas alcanzadas.
 
@@ -718,9 +706,7 @@ La bitácora será actualizada después de cada Daily Scrum, adjuntando la fecha
 
 #### 7.1 Lenguaje de Programación
 
-El lenguaje de programación a utilizar será Javascript, junto con su estándar ES6+.
-
-Además, se implementará con el Framework React.js, y su versión para desarrollo móvil, React Native.
+El lenguaje de programación a utilizar será Dart, en el SDK Flutter.
 
 #### 7.2 Estándar de codificación
 
@@ -1304,3 +1290,4 @@ Ejemplo:
 [https://lh5.googleusercontent.com/y0ViMrSz7WT-KQZSN_re-yAsMrZ_AC95jlKuphxp4-K-kFwgO0oh-g4k6wncMWiwMXK4zhp38_Lfiou-Pi15Taul8S8_NH9FAvwOBBZGs_AFls3QwPjbroXrlsrI9mjkq1FVQIou](https://lh5.googleusercontent.com/y0ViMrSz7WT-KQZSN_re-yAsMrZ_AC95jlKuphxp4-K-kFwgO0oh-g4k6wncMWiwMXK4zhp38_Lfiou-Pi15Taul8S8_NH9FAvwOBBZGs_AFls3QwPjbroXrlsrI9mjkq1FVQIou)
 
 Documentacion: https://www.docz.site/documentation
+
