@@ -48,13 +48,23 @@ class HomePage extends StatelessWidget {
                     ),
                     
                     Container(
-                      width: 300,                  
+                      width: 300,           
+                      height: 50,       
                       padding: EdgeInsets.only(top: 15),
-                      child: TextField(                    
+                      child: TextField(                                                      
                         decoration: InputDecoration(
-                          hintText: "Busca"
+                          hintText: "Busca",                          
+                          suffixIcon: FlatButton(
+                            onPressed: null,
+                            padding: EdgeInsets.only(left: 30),
+                            child: Image.asset('assets/photo-camera.png', width: 20, color: Colors.black26,),
+                          )
                         ),
                       ),
+                    ),
+
+                    SizedBox(
+                      height: 10,
                     ),
 
                     Container(
