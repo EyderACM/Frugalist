@@ -70,8 +70,62 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-
                     
+                    SizedBox(
+                      height: 30,
+                    ),
+
+                    Container(
+                      width: 100,
+                      padding: EdgeInsets.only(left: 25, right: 25),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
+                            children: <Widget>[
+                              FloatingActionButton(
+                                backgroundColor: Colors.white30,
+                                elevation: 1,
+
+                              ),
+                              FloatingActionButton(
+                                backgroundColor: Colors.white30,
+                                elevation: 1,
+
+                              ),
+                              FloatingActionButton(
+                                backgroundColor: Colors.white30,
+                                elevation: 1,
+
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 25,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
+                            children: <Widget>[
+                              FloatingActionButton(
+                                backgroundColor: Colors.white30,
+                                elevation: 1,
+
+                              ),
+                              FloatingActionButton(
+                                backgroundColor: Colors.white30,
+                                elevation: 1,
+
+                              ),
+                              FloatingActionButton(
+                                backgroundColor: Colors.white30,
+                                elevation: 1,
+
+                              ),                              
+                            ],                            
+                          ),
+                        ],
+                      ),
+                    )                                        
                   ],
             ),
         ),         
