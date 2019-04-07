@@ -12,6 +12,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Center(
         child: Container(
               padding: EdgeInsets.all(25),
