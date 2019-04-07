@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'searched_item.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  HomePageState createState() => new HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  var _textController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +33,7 @@ class HomePage extends StatelessWidget {
                               "¿Qué producto quieres buscar?",
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                fontSize: 40,
+                                fontSize: 25,
                                 height: 1.1,
                                 fontWeight: FontWeight.bold
                               ),
@@ -51,7 +59,15 @@ class HomePage extends StatelessWidget {
                       width: 300,           
                       height: 50,       
                       padding: EdgeInsets.only(top: 15),
-                      child: TextField(                                                      
+                      child: TextField(
+                        controller: _textController,
+                        onEditingComplete: (){
+                          var route = new MaterialPageRoute(
+                            builder: (BuildContext context) => 
+                              new ItemList(data: _textController.text),
+                            );
+                          Navigator.of(context).push(route);
+                        },
                         decoration: InputDecoration(
                           hintText: "Busca",                          
                           suffixIcon: FlatButton(
@@ -93,21 +109,7 @@ class HomePage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
                             children: <Widget>[
-                              FloatingActionButton(
-                                backgroundColor: Colors.white30,
-                                elevation: 1,
-
-                              ),
-                              FloatingActionButton(
-                                backgroundColor: Colors.white30,
-                                elevation: 1,
-
-                              ),
-                              FloatingActionButton(
-                                backgroundColor: Colors.white30,
-                                elevation: 1,
-
-                              ),
+                              
                             ],
                           ),
                           SizedBox(
@@ -116,21 +118,7 @@ class HomePage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
                             children: <Widget>[
-                              FloatingActionButton(
-                                backgroundColor: Colors.white30,
-                                elevation: 1,
-
-                              ),
-                              FloatingActionButton(
-                                backgroundColor: Colors.white30,
-                                elevation: 1,
-
-                              ),
-                              FloatingActionButton(
-                                backgroundColor: Colors.white30,
-                                elevation: 1,
-
-                              ),                              
+                                                          
                             ],                            
                           ),
                         ],
