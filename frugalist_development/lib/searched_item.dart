@@ -36,7 +36,7 @@ class _ItemListState extends State<ItemList> {
     return Scaffold(      
       body: Center(
         child: Container(
-              padding: EdgeInsets.all(25),
+              padding: EdgeInsets.only(top: 25, right: 25, left: 25),
               constraints: BoxConstraints.expand(),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
