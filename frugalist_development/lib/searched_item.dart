@@ -16,7 +16,7 @@ class _ItemListState extends State<ItemList> {
   Future<List<Item>> _getItems() async {
     String url = 'https://api.datos.gob.mx/v1/profeco.precios?pageSize=25&estado=YUCATÁN&municipio=MÉRIDA&producto=JAMON';    
     http.Response itemData = await http.get(Uri.encodeFull(url), headers:{"Accept": "application/json"});
-
+    
     if(itemData.statusCode != 200){
       throw Exception('Failed to fetch data');
     }
@@ -86,7 +86,6 @@ class _ItemListState extends State<ItemList> {
                         );
                       },
                     ),
-                    
                   ],            
               ),
         ),

@@ -26,7 +26,7 @@ class HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Container(
-                          width: 180,                          
+                          width: 180,
                           alignment: Alignment.topLeft,
                           padding: EdgeInsets.only(top: 15),
                           child: 
@@ -34,7 +34,7 @@ class HomePageState extends State<HomePage> {
                               "¿Qué producto quieres buscar?",
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                fontSize: 25,
+                                fontSize: 35,
                                 height: 1.1,
                                 fontWeight: FontWeight.bold
                               ),
@@ -120,11 +120,11 @@ class HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
                             children: <Widget>[
                                                           
-                            ],                            
+                            ],
                           ),
                         ],
                       ),
-                    )                                        
+                    ),
                   ],
             ),
         ),         
