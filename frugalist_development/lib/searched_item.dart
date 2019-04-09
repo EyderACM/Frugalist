@@ -14,9 +14,9 @@ class ItemList extends StatefulWidget {
 
 class _ItemListState extends State<ItemList> {  
   Future<List<Item>> _getItems() async {
-    String url = 'https://api.datos.gob.mx/v1/profeco.precios?pageSize=25&estado=YUCATÁN&municipio=MÉRIDA&producto=JAMON';    
-    http.Response itemData = await http.get(Uri.encodeFull(url), headers:{"Accept": "application/json"});
-
+    String url = 'https://api.datos.gob.mx/v1/profeco.precios?pageSize=25&estado=YUCATÁN&municipio=MÉRIDA&producto=${widget.data.toUpperCase()}';    
+    http.Response itemData = await http.get(Uri.encodeFull(url), headers:{"Accept": "LECHEapplication/json"});
+    
     if(itemData.statusCode != 200){
       throw Exception('Failed to fetch data');
     }
@@ -24,7 +24,8 @@ class _ItemListState extends State<ItemList> {
     var jsonData = json.decode(itemData.body)["results"];
     List<Item> items = [];    
     for(var i in jsonData){
-      Item item = Item(i["_id"], i["producto"], i["precio"]);
+      debugPrint(i["producto"]);
+    Item item = Item(i["_id"], i["presentacion"], i["precio"], i["cadenaComercial"]);
       items.add(item);
     }
     return items;
@@ -32,10 +33,10 @@ class _ItemListState extends State<ItemList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(      
       body: Center(
         child: Container(
-              padding: EdgeInsets.all(25),
+              padding: EdgeInsets.only(top: 25, right: 25, left: 25),
               constraints: BoxConstraints.expand(),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,7 +46,8 @@ class _ItemListState extends State<ItemList> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Container(
-                          width: 180,                          
+                          width: 180, 
+                          height: 100,                        
                           alignment: Alignment.topLeft,
                           padding: EdgeInsets.only(top: 15),
                           child: 
@@ -54,7 +56,7 @@ class _ItemListState extends State<ItemList> {
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 40,
-                                height: 1.1,
+                                height: 2,
                                 fontWeight: FontWeight.bold
                               ),
                             ),
@@ -62,12 +64,11 @@ class _ItemListState extends State<ItemList> {
                       ],
                     ),
                     SizedBox(
-                      height: 40,
+                      height: 15,
                     ),
                     FutureBuilder(
                       future: _getItems(),                      
-                      builder: (BuildContext context, AsyncSnapshot snapshot) {
-
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {                  
                         if(snapshot.data == null){                        
                           return Container(
                             child: Center(
@@ -75,19 +76,30 @@ class _ItemListState extends State<ItemList> {
                             )
                           );
                         }
-                        return ListView.builder(
-                          itemCount: snapshot.data.length,
-                          itemBuilder: (BuildContext context, int index){
-                            
-                            return ListTile(
-                              title: Text(snapshot.data[index].producto),
-                            );
-                          }
+                        return Expanded(                  
+                          child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true,
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (BuildContext context, int index){              
+                              return ListTile(
+                                title: Text(snapshot.data[index].producto),
+                                contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                                trailing: Text(
+                                  snapshot.data[index].precio,
+                                  style: TextStyle(
+                                    color: Color(0xff49FE5B),
+                                    fontSize: 15
+                                    ),
+                                  ),
+                                subtitle: Text(snapshot.data[index].cadenaComercial),  
+                              );
+                            }
+                          ),
                         );
                       },
                     ),
-                    
-                  ],            
+                  ],
               ),
         ),
       ),
@@ -98,7 +110,8 @@ class _ItemListState extends State<ItemList> {
 class Item {
   final String id;
   final String producto;
-  final double precio;
+  final String precio;
+  final String cadenaComercial;
 
-  Item(this.id, this.producto, this.precio);
+  Item(this.id, this.producto, this.precio, this.cadenaComercial);
 }
