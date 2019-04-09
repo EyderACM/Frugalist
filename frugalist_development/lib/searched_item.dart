@@ -35,7 +35,7 @@ class _ItemListState extends State<ItemList> {
     return Scaffold(      
       body: Center(
         child: Container(
-              padding: EdgeInsets.only(top: 25, right: 25, left: 25),
+              padding: EdgeInsets.only(top: 15, right: 25, left: 25),
               constraints: BoxConstraints.expand(),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,26 +44,26 @@ class _ItemListState extends State<ItemList> {
                     Column(                      
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        SizedBox(
+                          height: 15,
+                        ),
                         Container(
-                          width: 180, 
-                          height: 100,                        
+                          width: 250, 
+                          height: 150,                        
                           alignment: Alignment.topLeft,
-                          padding: EdgeInsets.only(top: 15),
+                          padding: EdgeInsets.only(top: 80),                        
                           child: 
                             Text(
                               "${widget.data}",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 40,
-                                height: 2,
+                                height: 1,
                                 fontWeight: FontWeight.bold
                               ),
                             ),
                         ),
                       ],
-                    ),
-                    SizedBox(
-                      height: 15,
                     ),
                     FutureBuilder(
                       future: _getItems(),                      
@@ -82,8 +82,8 @@ class _ItemListState extends State<ItemList> {
                             itemCount: snapshot.data.length,
                             itemBuilder: (BuildContext context, int index){              
                               return ListTile(
-                                title: Text(snapshot.data[index].producto),
-                                contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                                title: Text(snapshot.data[index].producto),                                                                
+                                contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                                 trailing: Text(
                                   snapshot.data[index].precio,
                                   style: TextStyle(
