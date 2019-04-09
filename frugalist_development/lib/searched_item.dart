@@ -24,7 +24,6 @@ class _ItemListState extends State<ItemList> {
     var jsonData = json.decode(itemData.body)["results"];
     List<Item> items = [];    
     for(var i in jsonData){
-      debugPrint(i["producto"]);
     Item item = Item(i["_id"], i["presentacion"], i["precio"], i["cadenaComercial"]);
       items.add(item);
     }
