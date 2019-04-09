@@ -25,34 +25,8 @@ class HomePageState extends State<HomePage> {
                     Column(                      
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Container(
-                          width: 180,
-                          alignment: Alignment.topLeft,
-                          padding: EdgeInsets.only(top: 15),
-                          child: 
-                            Text(
-                              "¿Qué producto quieres buscar?",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 35,
-                                height: 1.1,
-                                fontWeight: FontWeight.bold
-                              ),
-                            ),
-                        ),
-                        Container(
-                          width: 180,
-                          alignment: Alignment.topLeft,
-                          padding: EdgeInsets.only(top: 20),
-                          child: Text(
-                            "Mérida, Yucatán",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff49FE5B)
-                            ),
-                          ),
-                        ),
+                        Titulo(),
+                        Subtitulo(texto: "Mérida, Yucatán"),                                                
                       ],
                     ),
                     
@@ -79,25 +53,10 @@ class HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-
                     SizedBox(
                       height: 10,
                     ),
-
-                    Container(
-                          width: 180,
-                          alignment: Alignment.topLeft,
-                          padding: EdgeInsets.only(top: 20),
-                          child: Text(
-                            "¿Qué te gusta?",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff49FE5B)
-                            ),
-                          ),
-                        ),
-                    
+                    Subtitulo(texto: "¿Qué te gusta?"),
                     SizedBox(
                       height: 30,
                     ),
@@ -110,7 +69,7 @@ class HomePageState extends State<HomePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
                             children: <Widget>[
-                              
+                              // Aquí deberían estar los botones        
                             ],
                           ),
                           SizedBox(
@@ -119,7 +78,7 @@ class HomePageState extends State<HomePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
                             children: <Widget>[
-                                                          
+                              // Aquí deberían ir más botones                                                          
                             ],
                           ),
                         ],
@@ -132,5 +91,55 @@ class HomePageState extends State<HomePage> {
     );
   }
 }
+
+class Titulo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      width: 180,
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.only(top: 15),
+      child: 
+        Text(
+          "¿Qué producto quieres buscar?",
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            fontSize: 35,
+            height: 1.1,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+    );
+  }
+}
+
+class Subtitulo extends StatefulWidget {
+  final String texto;
+
+  const Subtitulo({Key key, this.texto}): super(key: key);
+
+  @override
+  _SubtituloState createState() => _SubtituloState();
+}
+
+class _SubtituloState extends State<Subtitulo> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 180,
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.only(top: 20),
+      child: Text(
+        widget.texto,
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+          color: Color(0xff49FE5B)
+        ),
+      ),
+    );
+  }
+}
+
 
 
