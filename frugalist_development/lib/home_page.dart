@@ -15,78 +15,78 @@ class HomePageState extends State<HomePage> {
       resizeToAvoidBottomPadding: false,
       body: Center(
         child: Container(
-              padding: EdgeInsets.all(25),
-              constraints: BoxConstraints.expand(),
-              child: 
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.start,              
-                  children: <Widget>[    
-                    Column(                      
-                      crossAxisAlignment: CrossAxisAlignment.start,
+          padding: EdgeInsets.all(25),
+          constraints: BoxConstraints.expand(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Titulo(),
+                  Subtitulo(text: "Mérida, Yucatán"),
+                ],
+              ),
+              Container(
+                width: 300,
+                height: 50,
+                padding: EdgeInsets.only(top: 15),
+                child: TextField(
+                  controller: _textController,
+                  onEditingComplete: () {
+                    var route = new MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          new ItemList(data: _textController.text),
+                    );
+                    Navigator.of(context).push(route);
+                  },
+                  decoration: InputDecoration(
+                      hintText: "Busca",
+                      suffixIcon: FlatButton(
+                        onPressed: null,
+                        padding: EdgeInsets.only(left: 30),
+                        child: Image.asset(
+                          'assets/photo-camera.png',
+                          width: 20,
+                          color: Colors.black26,
+                        ),
+                      )),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Subtitulo(text: "¿Qué te gusta?"),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: 100,
+                padding: EdgeInsets.only(left: 25, right: 25),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Titulo(),
-                        Subtitulo(texto: "Mérida, Yucatán"),                                                
+                        // Aquí deberían estar los botones
                       ],
                     ),
-                    
-                    Container(
-                      width: 300,           
-                      height: 50,       
-                      padding: EdgeInsets.only(top: 15),
-                      child: TextField(
-                        controller: _textController,
-                        onEditingComplete: (){
-                          var route = new MaterialPageRoute(
-                            builder: (BuildContext context) => 
-                              new ItemList(data: _textController.text),
-                            );
-                          Navigator.of(context).push(route);
-                        },
-                        decoration: InputDecoration(
-                          hintText: "Busca",                          
-                          suffixIcon: FlatButton(
-                            onPressed: null,
-                            padding: EdgeInsets.only(left: 30),
-                            child: Image.asset('assets/photo-camera.png', width: 20, color: Colors.black26,),
-                          )
-                        ),
-                      ),
-                    ),
                     SizedBox(
-                      height: 10,
+                      height: 25,
                     ),
-                    Subtitulo(texto: "¿Qué te gusta?"),
-                    SizedBox(
-                      height: 30,
-                    ),
-
-                    Container(
-                      width: 100,
-                      padding: EdgeInsets.only(left: 25, right: 25),
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
-                            children: <Widget>[
-                              // Aquí deberían estar los botones        
-                            ],
-                          ),
-                          SizedBox(
-                            height: 25,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,                      
-                            children: <Widget>[
-                              // Aquí deberían ir más botones                                                          
-                            ],
-                          ),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        // Aquí deberían ir más botones
+                      ],
                     ),
                   ],
-            ),
-        ),         
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -95,28 +95,24 @@ class HomePageState extends State<HomePage> {
 class Titulo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       width: 180,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.only(top: 15),
-      child: 
-        Text(
-          "¿Qué producto quieres buscar?",
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontSize: 35,
-            height: 1.1,
-            fontWeight: FontWeight.bold
-          ),
-        ),
+      child: Text(
+        "¿Qué producto quieres buscar?",
+        textAlign: TextAlign.left,
+        style:
+            TextStyle(fontSize: 35, height: 1.1, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
 
 class Subtitulo extends StatefulWidget {
-  final String texto;
+  final String text;
 
-  const Subtitulo({Key key, this.texto}): super(key: key);
+  const Subtitulo({Key key, this.text}) : super(key: key);
 
   @override
   _SubtituloState createState() => _SubtituloState();
@@ -130,16 +126,12 @@ class _SubtituloState extends State<Subtitulo> {
       alignment: Alignment.topLeft,
       padding: EdgeInsets.only(top: 20),
       child: Text(
-        widget.texto,
+        widget.text,
         style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-          color: Color(0xff49FE5B)
-        ),
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            color: Color(0xff49FE5B)),
       ),
     );
   }
 }
-
-
-
