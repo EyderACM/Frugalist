@@ -16,7 +16,7 @@ class _ItemListState extends State<ItemList> {
   Future<List<Item>> _getItems() async {
     String url =
         'https://api.datos.gob.mx/v1/profeco.precios?pageSize=25&estado=YUCATÁN&municipio=MÉRIDA&producto=${widget.data.toUpperCase()}';
-              
+
     http.Response itemData = await http
         .get(Uri.encodeFull(url), headers: {"Accept": "LECHEapplication/json"});
 
@@ -73,6 +73,18 @@ class _ItemListState extends State<ItemList> {
                         child: Center(
                       child: CircularProgressIndicator(),
                     ));
+                  } else if (snapshot.data.isEmpty) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,                      
+                      children: <Widget>[
+                      SizedBox(height: 100,), 
+                      Text(
+                        'Item no encontrado',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20, color: Colors.black45),
+                      )
+                    ]);
                   }
                   return Expanded(
                     child: ListView.builder(
