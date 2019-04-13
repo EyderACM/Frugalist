@@ -69,7 +69,9 @@ class HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        // Aquí deberían estar los botones
+                        CircleButton(buttonFile: "chicken",),
+                        CircleButton(buttonFile: "milk",),
+                        CircleButton(buttonFile: "fish",),
                       ],
                     ),
                     SizedBox(
@@ -78,7 +80,9 @@ class HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        // Aquí deberían ir más botones
+                        CircleButton(buttonFile: "eggs",),
+                        CircleButton(buttonFile: "carrot",),
+                        CircleButton(buttonFile: "apple",),
                       ],
                     ),
                   ],
@@ -131,6 +135,37 @@ class _SubtituloState extends State<Subtitulo> {
             fontSize: 18,
             fontWeight: FontWeight.w500,
             color: Color(0xff49FE5B)),
+      ),
+    );
+  }
+}
+
+class CircleButton extends StatefulWidget {
+  final String buttonFile;
+
+  const CircleButton({Key key, this.buttonFile}) : super(key: key);
+
+  @override
+  _CircleButtonState createState() => _CircleButtonState();
+}
+
+class _CircleButtonState extends State<CircleButton> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => {},
+      child: new Container(
+        width: 60,
+        height: 60,
+        padding: const EdgeInsets.all(18.0),
+        decoration:
+            new BoxDecoration(shape: BoxShape.circle, color: Colors.black12),
+        child: Image.asset(
+          'assets/${widget.buttonFile}.png',
+          color: Colors.black54,
+          width: 150,
+          height: 100,
+        ),
       ),
     );
   }
