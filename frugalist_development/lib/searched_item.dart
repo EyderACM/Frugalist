@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'home_page.dart';
 
 class ItemList extends StatefulWidget {
   final String data;
@@ -42,20 +43,43 @@ class _ItemListState extends State<ItemList> {
           padding: EdgeInsets.only(top: 15, right: 25, left: 25),
           constraints: BoxConstraints.expand(),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(
+                height: 55,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(),
+                            ),
+                          )
+                        },
+                    child: new Container(
+                      child: Image.asset(
+                        'assets/returnArrow.png',
+                        color: Colors.black,
+                        width: 25,
+                        height: 25,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(
-                    height: 15,
-                  ),
                   Container(
                     width: 250,
-                    height: 150,
+                    height: 100,
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 80),
+                    padding: EdgeInsets.only(top: 35),
                     child: Text(
                       "${widget.data}",
                       textAlign: TextAlign.left,
@@ -75,16 +99,19 @@ class _ItemListState extends State<ItemList> {
                     ));
                   } else if (snapshot.data.isEmpty) {
                     return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,                      
-                      children: <Widget>[
-                      SizedBox(height: 100,), 
-                      Text(
-                        'Item no encontrado',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 20, color: Colors.black45),
-                      )
-                    ]);
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          SizedBox(
+                            height: 100,
+                          ),
+                          Text(
+                            'Item no encontrado',
+                            textAlign: TextAlign.center,
+                            style:
+                                TextStyle(fontSize: 20, color: Colors.black45),
+                          )
+                        ]);
                   }
                   return Expanded(
                     child: ListView.builder(
@@ -94,8 +121,8 @@ class _ItemListState extends State<ItemList> {
                         itemBuilder: (BuildContext context, int index) {
                           return ListTile(
                             title: Text(snapshot.data[index].producto),
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
+                            contentPadding: EdgeInsets.only(
+                                bottom: 10, left: 15, right: 15),
                             trailing: Text(
                               snapshot.data[index].precio,
                               style: TextStyle(
