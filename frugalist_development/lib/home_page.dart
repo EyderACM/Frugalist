@@ -69,9 +69,18 @@ class HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        CircleButton(buttonFile: "chicken",),
-                        CircleButton(buttonFile: "milk",),
-                        CircleButton(buttonFile: "fish",),
+                        CircleButton(
+                          buttonFile: "chicken",
+                          search: "Pollo",
+                        ),
+                        CircleButton(
+                          buttonFile: "milk",
+                          search: "Leche en polvo",
+                        ),
+                        CircleButton(
+                          buttonFile: "fish",
+                          search: "Pescado",
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -80,9 +89,18 @@ class HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        CircleButton(buttonFile: "eggs",),
-                        CircleButton(buttonFile: "carrot",),
-                        CircleButton(buttonFile: "apple",),
+                        CircleButton(
+                          buttonFile: "eggs",
+                          search: "Huevo",
+                        ),
+                        CircleButton(
+                          buttonFile: "carrot",
+                          search: "Zanahoria",
+                        ),
+                        CircleButton(
+                          buttonFile: "apple",
+                          search: "Manzana",
+                        ),
                       ],
                     ),
                   ],
@@ -141,9 +159,9 @@ class _SubtituloState extends State<Subtitulo> {
 }
 
 class CircleButton extends StatefulWidget {
-  final String buttonFile;
+  final String buttonFile, search;
 
-  const CircleButton({Key key, this.buttonFile}) : super(key: key);
+  const CircleButton({Key key, this.buttonFile, this.search}) : super(key: key);
 
   @override
   _CircleButtonState createState() => _CircleButtonState();
@@ -153,7 +171,12 @@ class _CircleButtonState extends State<CircleButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {},
+      onTap: () {
+        var route = new MaterialPageRoute(
+          builder: (BuildContext context) => new ItemList(data: widget.search),
+        );
+        Navigator.of(context).push(route);
+      },
       child: new Container(
         width: 60,
         height: 60,

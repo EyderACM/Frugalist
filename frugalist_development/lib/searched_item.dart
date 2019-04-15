@@ -76,10 +76,10 @@ class _ItemListState extends State<ItemList> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    width: 250,
+                    width: 300,
                     height: 100,
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 35),
+                    padding: EdgeInsets.only(top: 30),
                     child: Text(
                       "${widget.data}",
                       textAlign: TextAlign.left,
@@ -119,14 +119,33 @@ class _ItemListState extends State<ItemList> {
                         shrinkWrap: true,
                         itemCount: snapshot.data.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return ListTile(
+                          return ListTile(                            
                             title: Text(snapshot.data[index].producto),
                             contentPadding: EdgeInsets.only(
-                                bottom: 10, left: 15, right: 15),
+                                bottom: 10, left: 10, right: 15),
                             trailing: Text(
                               snapshot.data[index].precio,
                               style: TextStyle(
                                   color: Color(0xff49FE5B), fontSize: 15),
+                            ),
+                            leading: InkWell(
+                              onTap: () => {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => HomePage(),
+                                      ),
+                                    )
+                                  },
+                              child: new Container(
+                                height: 30,                                
+                                child: Image.asset(
+                                  'assets/addSign.png',
+                                  color: Colors.black45,
+                                  width: 15,
+                                  height: 15,
+                                ),
+                              ),
                             ),
                             subtitle:
                                 Text(snapshot.data[index].cadenaComercial),
