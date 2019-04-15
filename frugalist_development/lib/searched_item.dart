@@ -122,11 +122,30 @@ class _ItemListState extends State<ItemList> {
                           return ListTile(                            
                             title: Text(snapshot.data[index].producto),
                             contentPadding: EdgeInsets.only(
-                                bottom: 10, left: 15, right: 15),
+                                bottom: 10, left: 10, right: 15),
                             trailing: Text(
                               snapshot.data[index].precio,
                               style: TextStyle(
                                   color: Color(0xff49FE5B), fontSize: 15),
+                            ),
+                            leading: InkWell(
+                              onTap: () => {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => HomePage(),
+                                      ),
+                                    )
+                                  },
+                              child: new Container(
+                                height: 30,                                
+                                child: Image.asset(
+                                  'assets/addSign.png',
+                                  color: Colors.black45,
+                                  width: 15,
+                                  height: 15,
+                                ),
+                              ),
                             ),
                             subtitle:
                                 Text(snapshot.data[index].cadenaComercial),
