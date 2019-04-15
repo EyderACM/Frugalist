@@ -76,10 +76,10 @@ class _ItemListState extends State<ItemList> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    width: 250,
+                    width: 300,
                     height: 100,
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 35),
+                    padding: EdgeInsets.only(top: 30),
                     child: Text(
                       "${widget.data}",
                       textAlign: TextAlign.left,
@@ -119,7 +119,7 @@ class _ItemListState extends State<ItemList> {
                         shrinkWrap: true,
                         itemCount: snapshot.data.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return ListTile(
+                          return ListTile(                            
                             title: Text(snapshot.data[index].producto),
                             contentPadding: EdgeInsets.only(
                                 bottom: 10, left: 15, right: 15),
