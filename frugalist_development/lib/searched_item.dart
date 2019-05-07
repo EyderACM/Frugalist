@@ -53,13 +53,19 @@ class _ItemListState extends State<ItemList> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   InkWell(
+                    /*
+                    
+                    @DEPRECATED
+                    @DEV: luislortega
+
                     onTap: () => {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePage(),
                             ),
-                          ),},
+                          ),}
+                          ,*/
                     child: new Container(
                       child: Image.asset(
                         'assets/returnArrow.png',
@@ -127,7 +133,11 @@ class _ItemListState extends State<ItemList> {
                               style: TextStyle(
                                   color: Color(0xff49FE5B), fontSize: 15),
                             ),
-                            leading: InkWell(
+                            leading: InkWell(/*
+
+                              @DEPRECATED
+                              @DEV: luislortega
+
                               onTap: () => {
                                     Navigator.push(
                                       context,
@@ -135,7 +145,7 @@ class _ItemListState extends State<ItemList> {
                                         builder: (context) => HomePage(),
                                       ),
                                     )
-                                  },
+                                  },*/
                               child: new Container(
                                 height: 30,                                
                                 child: Image.asset(
