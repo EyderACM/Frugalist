@@ -12,9 +12,16 @@ description: A new Flutter project.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
+'''
+@Dev: luislortega
+COMMIT 6a7fc9e320562c34463c88e299e39bcdaa17f51b To solve problems with packages get.
 
+
+Mistakes inside searches_item.dart. 
+My dart version is diferente.
+'''
 environment:
-  sdk: "2.1.0-dev.9.4.flutter-f9ebf21297" #To solve problems with packages get.
+  sdk: ">=2.1.0 <3.0.0" 
 
 dependencies:
   flutter:

@@ -59,7 +59,7 @@ class _ItemListState extends State<ItemList> {
                             MaterialPageRoute(
                               builder: (context) => HomePage(),
                             ),
-                          )},
+                          ),},
                     child: new Container(
                       child: Image.asset(
                         'assets/returnArrow.png',
