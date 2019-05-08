@@ -46,10 +46,15 @@ class HomePageState extends State<HomePage> {
                       suffixIcon: FlatButton(
                         onPressed: null,
                         padding: EdgeInsets.only(left: 30),
-                        child: Image.asset(
-                          'assets/photo-camera.png',
-                          width: 20,
-                          color: Colors.black26,
+                        child: GestureDetector(
+                          child: Image.asset(
+                            'assets/photo-camera.png',
+                            width: 20,
+                            color: Colors.black26,
+                          ),
+                          onTap: () {
+                            print("hi");
+                          },
                         ),
                       )),
                 ),
