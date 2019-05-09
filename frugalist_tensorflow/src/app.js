@@ -41,9 +41,6 @@ const upload = multer({
 /**
  * Routing
  */
-app.get("/upload", (req,res) =>{
-  res.send("hi.")
-})
 app.post('/upload', (req, res) => {
   upload(req, res, err => {
     if (err) {
