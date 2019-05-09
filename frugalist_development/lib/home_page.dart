@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'dart:async';
 
 import 'searched_item.dart';
 
@@ -17,10 +18,10 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  
   File imageFile;
   final scaffoldKey = new GlobalKey<ScaffoldState>();
-  static const baseUrl =
-      "http://192.168.0.3:8080"; //Local backend only work at my computer @luislortega
+  static const baseUrl = "http://192.168.0.3:8082";
   var _textController = new TextEditingController();
 
   @override
@@ -68,6 +69,7 @@ class HomePageState extends State<HomePage> {
                           ),
                           onTap: () {
                             _takePhoto();
+                            _uploadImage();
                           },
                         ),
                       )),
@@ -131,10 +133,14 @@ class HomePageState extends State<HomePage> {
       ),
     );
   }
+  void _showSnack(String text) {
+    scaffoldKey.currentState?.showSnackBar(new SnackBar(
+      content: new Text(text),
+    ));
+  }
 
   void _takePhoto() async {
     imageFile = await ImagePicker.pickImage(source: ImageSource.camera);
-    print(imageFile);
     setState(() {});
   }
 
@@ -147,7 +153,9 @@ class HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return new Center(
-            child: new CircularProgressIndicator(),
+            child: new CircularProgressIndicator(
+              
+            ),
           );
         },
         barrierDismissible: false);
@@ -163,26 +171,14 @@ class HomePageState extends State<HomePage> {
 
       var send = await request.send();
       var decode = await send.stream.bytesToString().then(json.decode);
-      if (send.statusCode == HttpStatus.ok) {
+      if(send.statusCode == HttpStatus.ok){
         _showSnack("Image uploaded / imageUrl = $baseUrl/${decode['path']}");
-      } else {
+      }else{
         _showSnack("image no uploaded / ${decode['message']}");
       }
     } catch (e) {
       _showSnack("ERROR" + e);
     }
-  }
-
-  void _showSnack(String text) {
-    scaffoldKey.currentState?.showSnackBar(new SnackBar(
-      content: new Text(text),
-    ));
-  }
-
-  List<int> compress(List<int> bytes) {
-    var image = img.decodeImage(bytes);
-    var rezise = img.copyResize(image, 480);
-    return img.encodePng(rezise);
   }
 }
 
@@ -264,4 +260,10 @@ class _CircleButtonState extends State<CircleButton> {
       ),
     );
   }
+}
+
+List<int> compress(List<int> bytes) {
+  var image = img.decodeImage(bytes);
+  var rezise = img.copyResize(image, 480);
+  return img.encodePng(rezise);
 }
