@@ -11,8 +11,9 @@ const multer = require('multer');
 const morgan = require('morgan');
 
 const app = express();
+const path = require('path');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8082;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
