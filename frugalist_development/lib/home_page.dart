@@ -1,5 +1,15 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+
 import 'searched_item.dart';
+
+import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
+import 'package:path/path.dart' as path;
+import 'package:image/image.dart' as img;
 
 class HomePage extends StatefulWidget {
   @override
@@ -7,6 +17,10 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  File imageFile;
+  final scaffoldKey = new GlobalKey<ScaffoldState>();
+  static const baseUrl =
+      "http://192.168.0.3:8080"; //Local backend only work at my computer @luislortega
   var _textController = new TextEditingController();
 
   @override
@@ -53,7 +67,7 @@ class HomePageState extends State<HomePage> {
                             color: Colors.black26,
                           ),
                           onTap: () {
-                            print("hi");
+                            _takePhoto();
                           },
                         ),
                       )),
@@ -116,6 +130,59 @@ class HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  void _takePhoto() async {
+    imageFile = await ImagePicker.pickImage(source: ImageSource.camera);
+    print(imageFile);
+    setState(() {});
+  }
+
+  void _uploadImage() async {
+    if (imageFile == null) {
+      return _showSnack("Please select a image");
+    }
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new Center(
+            child: new CircularProgressIndicator(),
+          );
+        },
+        barrierDismissible: false);
+
+    try {
+      final url = Uri.parse('$baseUrl/upload');
+      final imgFile = path.basename(imageFile.path);
+      final bytes = await compute(compress, imageFile.readAsBytesSync());
+
+      var request = http.MultipartRequest('POST', url)
+        ..files.add(new http.MultipartFile.fromBytes('image', bytes,
+            filename: imgFile));
+
+      var send = await request.send();
+      var decode = await send.stream.bytesToString().then(json.decode);
+      if (send.statusCode == HttpStatus.ok) {
+        _showSnack("Image uploaded / imageUrl = $baseUrl/${decode['path']}");
+      } else {
+        _showSnack("image no uploaded / ${decode['message']}");
+      }
+    } catch (e) {
+      _showSnack("ERROR" + e);
+    }
+  }
+
+  void _showSnack(String text) {
+    scaffoldKey.currentState?.showSnackBar(new SnackBar(
+      content: new Text(text),
+    ));
+  }
+
+  List<int> compress(List<int> bytes) {
+    var image = img.decodeImage(bytes);
+    var rezise = img.copyResize(image, 480);
+    return img.encodePng(rezise);
   }
 }
 

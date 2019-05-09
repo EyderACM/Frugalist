@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'home_page.dart';
 
 class ItemList extends StatefulWidget {
   final String data;
@@ -15,6 +14,7 @@ class ItemList extends StatefulWidget {
 
 class _ItemListState extends State<ItemList> {
   Future<List<Item>> _getItems() async {
+    //This isn't a safety option to send params.
     String url =
         'https://api.datos.gob.mx/v1/profeco.precios?pageSize=25&estado=YUCATÁN&municipio=MÉRIDA&producto=${widget.data.toUpperCase()}';
 
