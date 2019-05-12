@@ -132,10 +132,9 @@ class HomePageState extends State<HomePage> {
       ),
     );
   }
+
   void _showSnack(String text) {
-    scaffoldKey.currentState?.showSnackBar(new SnackBar(
-      content: new Text(text),
-    ));
+    print(text);
   }
 
   void _takePhoto() async {
@@ -170,11 +169,15 @@ class HomePageState extends State<HomePage> {
 
       var send = await request.send();
       var decode = await send.stream.bytesToString().then(json.decode);
+
       if(send.statusCode == HttpStatus.ok){
+        Navigator.pop(context);
         _showSnack("Image uploaded / imageUrl = $baseUrl/${decode['path']}");
       }else{
+        Navigator.pop(context);
         _showSnack("image no uploaded / ${decode['message']}");
       }
+
     } catch (e) {
       _showSnack("ERROR" + e);
     }
