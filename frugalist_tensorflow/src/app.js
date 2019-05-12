@@ -38,6 +38,57 @@ const upload = multer({
   storage: Storage,
 }).single('image');
 
+async function predict() {
+  // [START automl_vision_predict]
+  const automl = require('@google-cloud/automl').v1beta1;
+  const fs = require('fs');
+
+  // Create client for prediction service.
+  const client = new automl.PredictionServiceClient({
+    projectId: 'sleek-ad28e',
+    keyFilename: './key_frugalist.json',
+  });
+
+  /**
+   * TODO(developer): Uncomment the following line before running the sample.
+   */
+  const projectId = "sleek-ad28e";
+  const computeRegion = "us-central1";
+  const modelId = "ICN5373316204429827447";
+  const filePath = "./model_training/manzana/fsa.jpg";
+  const scoreThreshold = "0.5";
+
+  // Get the full path of the model.
+  const modelFullId = client.modelPath(projectId, computeRegion, modelId);
+
+  // Read the file content for prediction.
+  const content = fs.readFileSync(filePath, 'base64');
+
+  const params = {};
+
+  if (scoreThreshold) {
+    params.score_threshold = scoreThreshold;
+  }
+
+  // Set the payload by giving the content and type of the file.
+  const payload = {};
+  payload.image = {imageBytes: content};
+
+  // params is additional domain-specific parameters.
+  // currently there is no additional parameters supported.
+  const [response] = await client.predict({
+    name: modelFullId,
+    payload: payload,
+    params: params,
+  });
+  console.log(`Prediction results:`);
+  response.payload.forEach(result => {
+    console.log(`Predicted class name: ${result.displayName}`);
+    console.log(`Predicted class score: ${result.classification.score}`);
+  });
+  // [END automl_vision_predict]
+}
+
 /**
  * Routing
  */
@@ -56,6 +107,7 @@ app.post('/upload', (req, res) => {
   /**
    * Here we need implement TS image classificator.
    */
+  predict().catch(err => console.log(err))
 });
 
 app.listen(PORT, err => {
