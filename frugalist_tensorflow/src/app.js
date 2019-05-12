@@ -4,6 +4,11 @@
  *
  * IDK if this is necessary but we can get request with JSON params.
  * Maybe in a future to save data inside a database.
+ * 
+ * @todo 
+ * 1. Improve the modules.
+ * 2. Link the image token that get the server to filePath of the image that is predicted. 
+ * 3. Improve the performance deleting unused requires.  
  */
 const express = require('express');
 const bodyParser = require('body-parser');
