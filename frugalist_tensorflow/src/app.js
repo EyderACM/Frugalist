@@ -43,7 +43,7 @@ const upload = multer({
   storage: Storage,
 }).single('image');
 
-async function predict() {
+async function predict(imageURL, res) {
   // [START automl_vision_predict]
   const automl = require('@google-cloud/automl').v1beta1;
   const fs = require('fs');
@@ -53,14 +53,14 @@ async function predict() {
     projectId: 'sleek-ad28e',
     keyFilename: './key_frugalist.json',
   });
-
+  console.log(imageURL);
   /**
    * TODO(developer): Uncomment the following line before running the sample.
    */
   const projectId = "sleek-ad28e";
   const computeRegion = "us-central1";
   const modelId = "ICN5373316204429827447";
-  const filePath = "./model_training/manzana/fsa.jpg";
+  const filePath = `./images_ts/${imageURL}`;
   const scoreThreshold = "0.5";
 
   // Get the full path of the model.
@@ -86,17 +86,14 @@ async function predict() {
     payload: payload,
     params: params,
   });
-  console.log(`Prediction results:`);
-  response.payload.forEach(result => {
-    console.log(`Predicted class name: ${result.displayName}`);
-    console.log(`Predicted class score: ${result.classification.score}`);
-  });
-  // [END automl_vision_predict]
-}
 
-/**
- * Routing
- */
+  let resultado = "nothing"
+  response.payload.forEach(result => {
+    resultado = `Predicted class name: ${result.displayName}`;
+  });
+  console.log("RESULTADO FINAL: "+resultado)
+  res.status(200).send({path: resultado});
+}
 app.post('/upload', (req, res) => {
   upload(req, res, err => {
     if (err) {
@@ -107,12 +104,9 @@ app.post('/upload', (req, res) => {
       .slice(1)
       .join('/');
 
-    res.status(200).json({ path: p });
+    predict(p,res)
+    
   });
-  /**
-   * Here we need implement TS image classificator.
-   */
-  predict().catch(err => console.log(err))
 });
 
 app.listen(PORT, err => {
