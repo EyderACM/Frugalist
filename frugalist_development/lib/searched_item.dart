@@ -16,7 +16,7 @@ class _ItemListState extends State<ItemList> {
   Future<List<Item>> _getItems() async {
     //This isn't a safety option to send params.
     String url =
-        'https://api.datos.gob.mx/v1/profeco.precios?pageSize=25&estado=YUCATÁN&municipio=MÉRIDA&producto=${widget.data.toUpperCase()}';
+        'https://supermarket-scrapper.herokuapp.com/search/total/${widget.data.toUpperCase()}';
 
     http.Response itemData = await http
         .get(Uri.encodeFull(url), headers: {"Accept": "LECHEapplication/json"});
@@ -25,11 +25,11 @@ class _ItemListState extends State<ItemList> {
       throw Exception('Failed to fetch data');
     }
 
-    var jsonData = json.decode(itemData.body)["results"];
+    var jsonData = json.decode(itemData.body);
     List<Item> items = [];
     for (var i in jsonData) {
       Item item =
-          Item(i["_id"], i["presentacion"], i["precio"], i["cadenaComercial"]);
+          Item(i["presentacion"], i["precio"], i["cadenaComercial"], i["imagen"]);
       items.add(item);
     }
     return items;
@@ -127,32 +127,20 @@ class _ItemListState extends State<ItemList> {
                           return ListTile(                            
                             title: Text(snapshot.data[index].producto),
                             contentPadding: EdgeInsets.only(
-                                bottom: 10, left: 10, right: 15),
+                                bottom: 10, right: 10),
                             trailing: Text(
                               snapshot.data[index].precio,
                               style: TextStyle(
                                   color: Color(0xff49FE5B), fontSize: 15),
                             ),
-                            leading: InkWell(/*
-
-                              @DEPRECATED
-                              @DEV: luislortega
-
-                              onTap: () => {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => HomePage(),
-                                      ),
-                                    )
-                                  },*/
+                            leading: InkWell(
                               child: new Container(
-                                height: 30,                                
-                                child: Image.asset(
-                                  'assets/addSign.png',
-                                  color: Colors.black45,
-                                  width: 15,
-                                  height: 15,
+                                height: 45,                                
+                                child: Image.network(
+                                  snapshot.data[index].image,
+                                  fit: BoxFit.cover,
+                                  width: 50,
+                                  height: 50,
                                 ),
                               ),
                             ),
@@ -172,10 +160,10 @@ class _ItemListState extends State<ItemList> {
 }
 
 class Item {
-  final String id;
   final String producto;
+  final String image;
   final String precio;
   final String cadenaComercial;
 
-  Item(this.id, this.producto, this.precio, this.cadenaComercial);
+  Item(this.producto, this.precio, this.cadenaComercial, this.image);
 }
