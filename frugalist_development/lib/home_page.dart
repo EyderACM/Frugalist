@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'searched_item.dart';
+import 'shoppingCart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,7 +25,33 @@ class HomePageState extends State<HomePage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Titulo(),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Titulo(),
+                      InkWell(
+                        onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ShoppingCart(),
+                            ),
+                          )
+                        },
+                        child: Container(
+                          padding: EdgeInsets.only(right: 10, top: 25),
+                          child: Image.asset(
+                            'assets/shopping.png', 
+                            color: Colors.black54,                       
+                            width: 20,
+                            height: 25,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),                  
                   Subtitulo(text: "Mérida, Yucatán"),
                 ],
               ),
