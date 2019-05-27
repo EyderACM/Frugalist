@@ -100,7 +100,7 @@ Entre los objetivos generales de Frugalist podemos identificar los siguientes:
 
 Como entidad principal de información usaremos a la Profeco. De ella sacaremos la información de los precios de los artículos de supermercado principalmente, aunque igual podríamos preguntar a sus empleados en caso de que necesitemos algún tipo de información.
 
-También usaremos como entidad el API de Google Vision, ya que este API nos servirá para implementar la búsqueda por foto, para que sea más agil el proceso de búsqueda.
+También usaremos como entidad el API de Tensorflow light, ya que este API  servirá para implementar la búsqueda por foto, esto agilizando el proceso de búsqueda.
 
 Por último están los consumidores, ya que estos podrían registrar las ofertas que haya en algún supermercado para que otras personas puedan aprovecharlas.
 
@@ -135,8 +135,8 @@ El otro apartado a tratar (Apartado técnico) está relacionado con el factor in
 
 Estos roles representan las principales actividades que realizará cada integrante del equipo siguiendo la metodología Scrum, dado que las tareas y roles específicos serán definidos antes de cada Sprint, en este apartado se detallan los roles fundamentales.
 
-**Eyder Concha** - *Scrum Master/Product Owner/Scrum Team*
-**Jorge Chí** - *Scrum Team*
+**Eyder Concha** - *Product Owner/Scrum Team*
+**Jorge Chí** - *Scrum Team/Scrum Master*
 **Luis León** - *Scrum Team*
 **Rodrigo Hernández** - *Scrum Team*
 
@@ -168,7 +168,7 @@ Usuario: Persona que usa el sistema.
 
 #### 4.3.1 Funcionales
 
-| RF001   |      Pagina principal.      |  
+| RF001   |      Pagina principal (Dashboard).      |  
 |----------|:-------------:|
 | Prioridad:| alta |
 | Descripción |-El sistema deberá al iniciar, mostrar la primera 	página que deberá ser mostrada es la página principal (Dashboard). En esta página el usuario podrá buscar un producto de la canasta básica de productos en México de dos formas. Las formas de búsqueda siendo: **<br>a) Introduciendo el nombre del producto deseado <br>** **b) Tomando una fotografía del producto <br>** -El usuario podrá seleccionar el municipio en el que se encuentra como parámetro para la búsqueda.|
@@ -349,20 +349,8 @@ Condiciones:
 -   El usuario podrá capturar una fotografía del producto
 -   El usuario podrá capturar la fotografía de un producto con etiqueta o sin etiqueta
   
-  ***
-
-**HU05** - Precios de productos
-**Como:** Usuario
-**Quiero:** Visualizar el precio de producto buscado
-**Para:** Saber en que lugar comprar
-**Condiciones:**
--   Deberán mostrarse los productos ordenados conforme al precio.
--   El usuario podrá seleccionar entre distintos parámetros entre ellos: un supermercado en particular y una categoría de producto.
--   El usuario podrá añadir un producto a su carrito de compra
-    
- ***
- 
-**HU06** - Carrito de compras
+  
+**HU05** - Carrito de compras
 **Como:** Usuario
 **Quiero:** Visualizar el costo total de los productos seleccionados
 **Para:** Saber el ahorro de mi carrito de compras
@@ -394,19 +382,19 @@ https://docs.google.com/spreadsheets/d/1JUcAUXYVMxapeXlcMeodk5aaJgzYbr5WMM8Dc8G8
 #### 5.1.3 Herramientas de Construcción
 
 - Git y Github
-- Node Package Manager
+- Tensorflow Lite API
 - Profeco API
-- Google Cloud Vision API
 - Visual Studio Code
-- React Native (Javascript)
-- Expo
+- Flutter
+- Dart
+- Android Studio
 - Genymotion
 - Smartphone
 
 #### 5.1.4 Herramientas para Testing y Documentación
 
-- Jest
-- Docz
+- Flutter integrated tests
+- Dart doc
   
 #### 5.1.5 Herramientas para Comunicación
 
@@ -459,17 +447,17 @@ Este gestor de paquetes será utilizado para la implementación de herramientas 
 c) Profeco API
 Será utilizada para la obtención de datos de los diversos productos buscados por los usuarios, al igual que representará un marco de referencia para el análisis de fotografías de promociones capturadas por los mismos.
 
-d) Google Cloud Vision API
+d) Tensorflow API
 Se utilizará para el reconocimiento de productos, la API generará una etiqueta con el texto correspondiente, representando al producto, o a la etiqueta del mismo en caso de tener una, la cual se pasará a la API de profeco.
 
 e) Visual Studio Code
 Es el editor de texto que se utilizará para el desarrollo de la aplicación.
 
-f) React Native
-Framework de Javascript que se utilizará para el desarrollo de la aplicación, permite desarrollar en móvil mediante la creación de componentes que representan elementos de la aplicación.
+f) Flutter
+SDK utilizado para el desarrollo de la aplicación nativa en Android y Ios, será el recurso principal utilizado para la construcción.
 
-g) Expo
-Herramienta que funciona con React Native, te permite acceder a las funcionalidades del dispositivo móvil, como la cámara, notificaciones y GPS, al igual que facilita la distribución en las diferentes tiendas virtuales de aplicaciones.
+g) Dart
+Lenguaje de programación utilizado para el desarrollo de la aplicación, el cual se utilizará junto con el sdk de Flutter.
 
 h) Genymotion
 Se usará para emular un dispositivo móvil, permitiendo verificar el rendimiento de la aplicación.
@@ -481,11 +469,11 @@ Se utilizará para las pruebas del funcionamiento general de la aplicación, ren
 
 #### 5.2.4 Herramientas para testing y documentación
 
-a) Jest
-Será utilizado para el testing de los diferentes apartados de la aplicación, Jest permite simular peticiones de API, facilitando la prueba de los posibles casos de error.
+a) Flutter integrated testing
+Será utilizado para el testing de los diferentes apartados de la aplicación, permitirá simular peticiones de API, facilitando la prueba de los posibles casos de error.
 
-b) Docz
-Docz se utilizará para la documentación de los diversos componentes que utilizará React Native, esto permitiendo la creación de una documentación basada en JsDoc, sin limitarse a Javascript Vanilla.  
+b) Dartdoc
+Dartdoc se utilizará para la documentación de los diversos componentes que utilizará Flutter, esto permitiendo la creación de una documentación compatible con los Widget de Flutter.  
 
 #### 5.2.5 Herramientas para la comunicación
 
@@ -602,7 +590,7 @@ Product Backlog
 
 El Product Backlog es una lista ordenada de todo lo que será necesario realizar para el producto, esto representado como historias de usuario, las cuales son llamadas “ítems”, esta lista representa una guía a seguir durante el desarrollo general del proyecto, seleccionando de forma específica un número determinado de ítems los cuales se desarrollaran a lo largo de un Sprint. Un número determinado de ítems será definido en la etapa de “Sprint planning”, anterior a cada sprint.
 
-El product backlog está compuesto por los requerimientos principales para el desarrollo del producto, es dinámico y está en constante cambio durante el transcurso del proyecto, los cambios que se verán reflejados en esté serán todos los cambios relacionados con los requerimientos, herramientas, o métodos utilizados.
+El Product backlog está compuesto por los requerimientos principales para el desarrollo del producto, es dinámico y está en constante cambio durante el transcurso del proyecto, los cambios que se verán reflejados en esté serán todos los cambios relacionados con los requerimientos, herramientas, o métodos utilizados.
 
   
 
@@ -661,7 +649,7 @@ En este canal se reportarán los errores encontrados en el sistema, al igual que
 
 El monitoreo del equipo estará contenido en el Daily Scrum, donde tras terminar la reunión, se realizará un reporte con los cambios y aportes realizados ese día.
 
-Al terminar la reunión semanal (la cual fue definida con anterioridad), el equipo elaborará una bitácora con el avance del proyecto, este representandose en ítems completados.
+Al terminar la reunión semanal (la cual fue definida con anterioridad), el equipo elaborará una bitácora con el avance del proyecto, este representándose en ítems completados.
 
 Finalmente, se realizará una bitácora general del Sprint, los ítems realizados a lo largo del mismo, y las metas alcanzadas.
 
@@ -718,589 +706,27 @@ La bitácora será actualizada después de cada Daily Scrum, adjuntando la fecha
 
 #### 7.1 Lenguaje de Programación
 
-El lenguaje de programación a utilizar será Javascript, junto con su estándar ES6+.
-
-Además, se implementará con el Framework React.js, y su versión para desarrollo móvil, React Native.
+El lenguaje de programación a utilizar será Dart, en el SDK Flutter.
 
 #### 7.2 Estándar de codificación
 
-Se utilizará el estándar definido por Airbnb, que consiste en lo siguiente:
+Se utilizará el estándar definido por Flutter, que consiste en lo siguiente:
 
-Cuando trabajamos con los primitivos, se hace de forma directa con los valores “String, number, boolean, null, undefined, symbol”, en JavaScript estos son declarados de forma automática con el prefijo var que proporciona libertad en la mutación de los datos al desarrollador y creando un estándar informal gracias a que es permitido omitir los punto y coma al final de la sentencia, que en primer plano a uno le podría parecer una ventaja, pero esto conlleva muchos potenciales errores ya que te permite crear una variable u objeto previamente creado, para evitar estos potenciales errores el estándar Airbnb siempre pondremos punto y coma al final de la sentencia y utilizaremos el prefijo let para variables y const para los constantes (valores que jamás cambiarán).
-```
-var  pi  =  3.1416;  /* bad */
-
-var  bar = 2;
-
-Prefijos:
-
-const  pi  =  3.1416; //good
-
-let  bar = 2;
-```
 ##### Nombrado de archivos:
 
 Para el nombrado de los archivos / classes de nuestro proyecto usaremos la regla CamelCase iniciando todos los archivos con mayúscula
 
  ##### Funciones:
 
-Utilizaremos la sintaxis de parámetros por defecto en lugar de mutar los argumentos de la función.
-```
-// really bad
-
-function  handleThings(opts) {
-
-// No! We shouldn’t  // Double bad: if opts is falsy it'll be set to an object which may
-
-mutate function arguments.
-
-// be what you want but it can introduce subtle bugs.
-
-opts = opts || {};
-
-// ...
-
-}
-
-// still bad
-
-function  handleThings(opts) {
-
-if (opts ===  void  0) {
-
-opts = {};
-
-}
-
-// ...
-
-}
-
-// good
-
-function  handleThings(opts = {}) {
-
-// ...
-
-}
-```
-Siempre pondremos los parámetros por default de ultimo
-```
-// bad
-
-function  handleThings(opts = {}, name) {
-
-// ...
-
-}
-
-// good
-
-function  handleThings(name, opts = {}) {
-
-// ...
-
-}
-```
-Usaremos espaciado en la creación de funciones por reglas de EsLint.
-```
-// bad
-
-const  f  =  function(){};
-
-const  g  =  function (){};
-
-const  h  =  function() {};
-
-// good
-
-const  x  =  function () {};
-
-const  y  =  function  a() {};
-
-// bad
-
-function  f1(a) {
-
-a =  1;
-
-// ...
-
-}
-
-function  f2(a) {
-
-if (!a) { a =  1; }
-
-// ...
-
-}
-
-// good
-
-function  f3(a) {
-
-const  b  = a ||  1;
-
-// ...
-
-}
-
-function  f4(a =  1) {
-
-// ...
-
-
-}
-```
-No reasignaremos parámetros para evitar confusiones
-```
-// bad
-
-function  f1(a) {
-
-a =  1;
-
-// ...
-
-}
-
-function  f2(a) {
-
-if (!a) { a =  1; }
-
-// ...
-
-}
-
-// good
-
-function  f3(a) {
-
-const  b  = a ||  1;
-
-// ...
-
-}
-
-function  f4(a =  1) {
-
-// ...
-
-}
-```
 
 ##### Funciones flecha:
 
-Por reglas de EsLint utilizaremos las funciones flechas nos permitirá tener un sintax consistente y legible
-
-```
-// bad
-
-[1, 2, 3].map(function (x) {
-
-const  y  = x +  1;
-
-return x * y;
-
-});
-
-// good
-
-[1, 2, 3].map((x) => {
-
-const  y  = x +  1;
-
-return x * y;
-
-});
-```
-
-Si el cuerpo de la función consiste en una sola declaración que devuelve una expresión sin efectos secundarios, omitiremos las llaves y use el retorno implícito. De lo contrario, mantendremos las llaves y utilizaremos una declaración de retorno permitirá que el código se lea bien cuando se encadenan múltiples funciones.
-
-```
-// bad
-
-[1, 2, 3].map(number => {
-
-const  nextNumber  = number +  1;
-
-`A string containing the ${nextNumber}.`;
-
-});
-
-// good
-
-[1, 2, 3].map(number =>  `A string containing the ${number +  1}.`);
-
-// good
-
-[1, 2, 3].map((number) => {
-
-const  nextNumber  = number +  1;
-
-return  `A string containing the ${nextNumber}.`;
-
-});
-
-// good
-
-[1, 2, 3].map((number, index) => ({
-
-[index]: number,
-
-}));
-
-// No implicit return with side effects
-
-function  foo(callback) {
-
-const  val  =  callback();
-
-if (val ===  true) {
-
-// Do something if callback returns true
-
-}
-
-}
-
-let bool =  false;
-
-// bad
-
-foo(() => bool =  true);
-
-// good
-
-foo(() => {
-
-bool =  true;
-
-});
-
-```
-
-Si la expresión se extiende múltiples líneas usaremos un paréntesis para contenerlo
-
-```
-// bad
-
-['get', 'post', 'put'].map(httpMethod =>  Object.prototype.hasOwnProperty.call(
-
-httpMagicObjectWithAVeryLongName,
-
-httpMethod,
-
-)
-
-);
-
-// good
-
-['get', 'post', 'put'].map(httpMethod => (
-
-Object.prototype.hasOwnProperty.call(
-
-httpMagicObjectWithAVeryLongName,
-
-httpMethod,
-
-)
-
-));
-```
-
-Si la función toma un solo argumento y no usa llaves, omitiremos los paréntesis. De lo contrario, siempre incluiremos paréntesis alrededor de los argumentos para mayor claridad y consistencia. Nota: también es aceptable usar siempre paréntesis, en cuyo caso use la opción "always"
-```
-// bad
-
-[1, 2, 3].map((x) => x * x);
-
-// good
-
-[1, 2, 3].map(number => (
-
-`A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
-
-));
-
-// bad
-
-[1, 2, 3].map(x => {
-
-const  y  = x +  1;
-
-return x * y;
-
-});
-
-// good
-
-[1, 2, 3].map((x) => {
-
-const  y  = x +  1;
-
-return x * y;
-
-});
-```
-
+Si la función toma un solo argumento y no usa llaves, omitiremos los paréntesis. De lo contrario, siempre incluiremos paréntesis alrededor de los argumentos para mayor claridad y consistencia.
 Clases
-
-Usaremos class para manejar directamente el prototype, nos permitirá tener un sintax más consistente
-
-```
-// bad
-
-function  Queue(contents = []) {
-
-this.queue = [...contents];
-
-}
-
-Queue.prototype.pop  =  function () {
-
-const  value  =  this.queue[0];
-
-this.queue.splice(0, 1);
-
-return value;
-
-};
-
-// good
-
-class  Queue {
-
-constructor(contents = []) {
-
-this.queue = [...contents];
-
-}
-
-pop() {
-
-const  value  =  this.queue[0];
-
-this.queue.splice(0, 1);
-
-return value;
-
-}
-
-}
-```
-
-Usaremos el extends para extender una clase hija de la clase padre
-
-```
-// bad
-
-const  inherits  =  require('inherits');
-
-function  PeekableQueue(contents) {
-
-Queue.apply(this, contents);
-
-}
-
-inherits(PeekableQueue, Queue);
-
-PeekableQueue.prototype.peek  =  function () {
-
-return  this.queue[0];
-
-};
-
-// good
-
-class  PeekableQueue  extends  Queue {
-
-peek() {
-
-return  this.queue[0];
-
-}
-
-}
-```
-
-Los métodos se podrán retornar ellos mismos con “this” para ayudar en el cambio del método
-
-```
-// bad
-
-Jedi.prototype.jump  =  function () {
-
-this.jumping =  true;
-
-return  true;
-
-};
-
-Jedi.prototype.setHeight  =  function (height) {
-
-this.height  = height;
-
-};
-
-const  luke  =  new  Jedi();
-
-luke.jump(); // => true
-
-luke.setHeight(20); // => undefined
-
-// good
-
-class  Jedi {
-
-jump() {
-
-this.jumping =  true;
-
-return  this;
-
-}
-
-setHeight(height) {
-
-this.height  = height;
-
-return  this;
-
-}
-
-}
-
-const  luke  =  new  Jedi();
-
-luke.jump().setHeight(20);
-```
-
-Estará bien implementar un método editable “toString” que verifique la función de los métodos
-```
-class  Jedi {
-
-constructor(options = {}) {
-
-this.name  = options.name  ||  'no name';
-
-}
-
-getName() {
-
-return  this.name;
-
-}
-
-toString() {
-
-return  `Jedi - ${this.getName()}`;
-
-}
-
-}
-```
-Variables
-
-Mantendremos una agrupación de “lets” y “const” para mayor legibilidad del código, también evita la declaración multi-línea
-```
-// bad
-
-let i, len, dragonball,
-
-items =  getItems(),
-
-goSportsTeam =  true;
-
-// bad
-
-let i;
-
-const  items  =  getItems();
-
-let dragonball;
-
-const  goSportsTeam  =  true;
-
-let len;
-
-// good
-
-const  goSportsTeam  =  true;
-
-const  items  =  getItems();
-
-let dragonball;
-
-let i;
-
-let length;
-```
-
-Asignaremos las variables donde las necesitamos, pero poniéndolas en un lugar razonable
-```
-// bad - unnecessary function call
-
-function  checkName(hasName) {
-
-const  name  =  getName();
-
-if (hasName ===  'test') {
-
-return  false;
-
-}
-
-if (name ===  'test') {
-
-this.setName('');
-
-return  false;
-
-}
-
-return name;
-
-}
-
-// good
-
-function  checkName(hasName) {
-
-if (hasName ===  'test') {
-
-return  false;
-
-}
-
-const  name  =  getName();
-
-if (name ===  'test') {
-
-this.setName('');
-
-return  false;
-
-}
-
-return name;
-
-}
-```
 
 #### 7.3 Herramienta para documentación
 
-Docz
+DartDoc
 
-La documentación la haremos con el software Docz, los estándares de documentación y plantillas las proporciona automáticamente, está basado en MDX qué es Markdown + JSX y tendrá igual soporte para TypeScript, convertirá los comentarios dentro del código como plantilla para la documentación.
+La documentación la haremos con el software DartDoc, los estándares de documentación y plantillas las proporciona automáticamente, convertirá los comentarios dentro del código como plantilla para la documentación.
 
-Para el texto utilizaremos la sintaxis de Markdown, podremos pegar código de React y JavaScript. Para mostrar todas las propiedades que tiene un elemento usaremos la etiqueta <PropsTable of={button or other component}>
-
-Ejemplo:
-
-  
-[https://lh5.googleusercontent.com/y0ViMrSz7WT-KQZSN_re-yAsMrZ_AC95jlKuphxp4-K-kFwgO0oh-g4k6wncMWiwMXK4zhp38_Lfiou-Pi15Taul8S8_NH9FAvwOBBZGs_AFls3QwPjbroXrlsrI9mjkq1FVQIou](https://lh5.googleusercontent.com/y0ViMrSz7WT-KQZSN_re-yAsMrZ_AC95jlKuphxp4-K-kFwgO0oh-g4k6wncMWiwMXK4zhp38_Lfiou-Pi15Taul8S8_NH9FAvwOBBZGs_AFls3QwPjbroXrlsrI9mjkq1FVQIou)
-
-Documentacion: https://www.docz.site/documentation
