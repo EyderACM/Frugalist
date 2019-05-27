@@ -50,23 +50,7 @@ class _ItemListState extends State<ItemList> {
                 height: 55,
               ),
               Arrow(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    width: 300,
-                    height: 100,
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 30),
-                    child: Text(
-                      "${widget.data}",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontSize: 40, height: 1, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
-              ),
+              Title(title: widget.data),
               FutureBuilder(
                 future: _getItems(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -154,6 +138,36 @@ class Arrow extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class Title extends StatefulWidget {
+  final String title;
+  @override
+  _TitleState createState() => _TitleState();
+  const Title({Key key, this.title}) : super(key: key);
+}
+
+class _TitleState extends State<Title> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          width: 300,
+          height: 100,
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.only(top: 30),
+          child: Text(
+            "${widget.title}",
+            textAlign: TextAlign.left,
+            style:
+                TextStyle(fontSize: 40, height: 1, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
     );
   }
 }
