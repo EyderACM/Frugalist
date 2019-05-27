@@ -68,7 +68,8 @@ class HomePageState extends State<HomePage> {
                           ),
                           onTap: () {
                             _takePhoto();
-                            _uploadImage();
+                            _uploadImage(_textController);
+                            
                           },
                         ),
                       )),
@@ -142,7 +143,7 @@ class HomePageState extends State<HomePage> {
     setState(() {});
   }
 
-  void _uploadImage() async {
+  void _uploadImage(TextEditingController _controller) async {
     if (imageFile == null) {
       return _showSnack("Please select a image");
     }
@@ -171,8 +172,12 @@ class HomePageState extends State<HomePage> {
       var decode = await send.stream.bytesToString().then(json.decode);
 
       if(send.statusCode == HttpStatus.ok){
-        Navigator.pop(context);
-        _showSnack("Image uploaded / imageUrl = $baseUrl/${decode['path']}");
+        _controller.text=decode['path'];
+        var route = new MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          new ItemList(data: _controller.text),
+                    );
+                    Navigator.of(context).push(route);
       }else{
         Navigator.pop(context);
         _showSnack("image no uploaded / ${decode['message']}");

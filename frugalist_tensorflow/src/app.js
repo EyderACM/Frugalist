@@ -89,9 +89,8 @@ async function predict(imageURL, res) {
 
   let resultado = "nothing"
   response.payload.forEach(result => {
-    resultado = `Predicted class name: ${result.displayName}`;
+    resultado = `${result.displayName}`;
   });
-  console.log("RESULTADO FINAL: "+resultado)
   res.status(200).send({path: resultado});
 }
 app.post('/upload', (req, res) => {
@@ -103,9 +102,7 @@ app.post('/upload', (req, res) => {
       .split(path.sep)
       .slice(1)
       .join('/');
-
-    predict(p,res)
-    
+    predict(p,res)    
   });
 });
 
