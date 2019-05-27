@@ -45,14 +45,15 @@ class HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Titulo(),
-                      InkWell(
-                        onTap: () => {
+                      GestureDetector(
+                        
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => ShoppingCart(),
                             ),
-                          )
+                          );
                         },
                         child: Container(
                           padding: EdgeInsets.only(right: 10, top: 25),

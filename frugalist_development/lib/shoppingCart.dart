@@ -24,14 +24,14 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  InkWell(
-                    onTap: () => {
+                  GestureDetector(
+                    onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePage(),
                             ),
-                          )
+                          );
                         },
                     child: new Container(
                       child: Image.asset(

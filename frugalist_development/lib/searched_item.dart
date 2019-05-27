@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
+import 'home_page.dart';
 import 'dart:convert';
 
 class ItemList extends StatefulWidget {
@@ -52,20 +53,15 @@ class _ItemListState extends State<ItemList> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  InkWell(
-                    /*
-                    
-                    @DEPRECATED
-                    @DEV: luislortega
-
-                    onTap: () => {
+                  GestureDetector(
+                    onTap: ()  {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePage(),
                             ),
-                          ),}
-                          ,*/
+                          );
+                      },
                     child: new Container(
                       child: Image.asset(
                         'assets/returnArrow.png',
