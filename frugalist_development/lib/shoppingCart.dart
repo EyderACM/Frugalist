@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'backArrow.dart';
 
 class ShoppingCart extends StatefulWidget {
   @override
@@ -24,24 +24,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage(),
-                            ),
-                          );
-                        },
-                    child: new Container(
-                      child: Image.asset(
-                        'assets/returnArrow.png',
-                        color: Colors.black,
-                        width: 25,
-                        height: 25,
-                      ),
-                    ),
-                  ),
+                  Arrow(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[

@@ -212,7 +212,7 @@ class HomePageState extends State<HomePage> {
       }
 
     } catch (e) {
-      _showSnack("ERROR" + e);
+      _showSnack("ERROR");
     }
   }
 }
