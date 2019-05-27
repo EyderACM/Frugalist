@@ -76,8 +76,7 @@ class HomePageState extends State<HomePage> {
                             _uploadImage(_textController);
                           },
                         ),
-                      )
-                    ),
+                      )),
                 ),
               ),
               SizedBox(
@@ -90,47 +89,7 @@ class HomePageState extends State<HomePage> {
               Container(
                 width: 100,
                 padding: EdgeInsets.only(left: 25, right: 25),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        CircleButton(
-                          buttonFile: "chicken",
-                          search: "Pollo",
-                        ),
-                        CircleButton(
-                          buttonFile: "milk",
-                          search: "Leche en polvo",
-                        ),
-                        CircleButton(
-                          buttonFile: "fish",
-                          search: "Pescado",
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        CircleButton(
-                          buttonFile: "eggs",
-                          search: "Huevo",
-                        ),
-                        CircleButton(
-                          buttonFile: "carrot",
-                          search: "Zanahoria",
-                        ),
-                        CircleButton(
-                          buttonFile: "apple",
-                          search: "Manzana",
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                child: Recomendations(),
               ),
             ],
           ),
@@ -295,6 +254,57 @@ class _CircleButtonState extends State<CircleButton> {
           width: 150,
           height: 100,
         ),
+      ),
+    );
+  }
+}
+
+class Recomendations extends StatelessWidget {
+  const Recomendations({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              CircleButton(
+                buttonFile: "chicken",
+                search: "Pollo",
+              ),
+              CircleButton(
+                buttonFile: "milk",
+                search: "Leche en polvo",
+              ),
+              CircleButton(
+                buttonFile: "fish",
+                search: "Pescado",
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              CircleButton(
+                buttonFile: "eggs",
+                search: "Huevo",
+              ),
+              CircleButton(
+                buttonFile: "carrot",
+                search: "Zanahoria",
+              ),
+              CircleButton(
+                buttonFile: "apple",
+                search: "Manzana",
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
