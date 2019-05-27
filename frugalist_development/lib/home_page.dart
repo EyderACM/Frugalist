@@ -18,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  
   File imageFile;
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   static const baseUrl = "http://192.168.0.3:8082";
@@ -43,30 +42,8 @@ class HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Titulo(),
-                      GestureDetector(
-                        
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ShoppingCart(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          padding: EdgeInsets.only(right: 10, top: 25),
-                          child: Image.asset(
-                            'assets/shopping.png', 
-                            color: Colors.black54,                       
-                            width: 20,
-                            height: 25,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),                  
+                    children: <Widget>[Titulo(), ShoppingCartButton()],
+                  ),
                   Subtitulo(text: "Mérida, Yucatán"),
                 ],
               ),
@@ -97,10 +74,10 @@ class HomePageState extends State<HomePage> {
                           onTap: () {
                             _takePhoto();
                             _uploadImage(_textController);
-                            
                           },
                         ),
-                      )),
+                      )
+                    ),
                 ),
               ),
               SizedBox(
@@ -180,9 +157,7 @@ class HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return new Center(
-            child: new CircularProgressIndicator(
-              
-            ),
+            child: new CircularProgressIndicator(),
           );
         },
         barrierDismissible: false);
@@ -199,18 +174,17 @@ class HomePageState extends State<HomePage> {
       var send = await request.send();
       var decode = await send.stream.bytesToString().then(json.decode);
 
-      if(send.statusCode == HttpStatus.ok){
-        _controller.text=decode['path'];
+      if (send.statusCode == HttpStatus.ok) {
+        _controller.text = decode['path'];
         var route = new MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          new ItemList(data: _controller.text),
-                    );
-                    Navigator.of(context).push(route);
-      }else{
+          builder: (BuildContext context) =>
+              new ItemList(data: _controller.text),
+        );
+        Navigator.of(context).push(route);
+      } else {
         Navigator.pop(context);
         _showSnack("image no uploaded / ${decode['message']}");
       }
-
     } catch (e) {
       _showSnack("ERROR");
     }
@@ -256,6 +230,35 @@ class _SubtituloState extends State<Subtitulo> {
             fontSize: 18,
             fontWeight: FontWeight.w500,
             color: Color(0xff49FE5B)),
+      ),
+    );
+  }
+}
+
+class ShoppingCartButton extends StatelessWidget {
+  const ShoppingCartButton({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ShoppingCart(),
+            ),
+          );
+        },
+        child: Container(
+          padding: EdgeInsets.only(right: 10, top: 25),
+          child: Image.asset(
+            'assets/shopping.png',
+            color: Colors.black54,
+            width: 20,
+            height: 25,
+          ),
+        ),
       ),
     );
   }
