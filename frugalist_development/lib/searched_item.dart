@@ -29,8 +29,8 @@ class _ItemListState extends State<ItemList> {
     var jsonData = json.decode(itemData.body);
     List<Item> items = [];
     for (var i in jsonData) {
-      Item item =
-          Item(i["presentacion"], i["precio"], i["cadenaComercial"], i["imagen"]);
+      Item item = Item(
+          i["presentacion"], i["precio"], i["cadenaComercial"], i["imagen"]);
       items.add(item);
     }
     return items;
@@ -49,30 +49,7 @@ class _ItemListState extends State<ItemList> {
               SizedBox(
                 height: 55,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: ()  {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage(),
-                            ),
-                          );
-                      },
-                    child: new Container(
-                      child: Image.asset(
-                        'assets/returnArrow.png',
-                        color: Colors.black,
-                        width: 25,
-                        height: 25,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              Arrow(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -99,20 +76,7 @@ class _ItemListState extends State<ItemList> {
                       child: CircularProgressIndicator(),
                     ));
                   } else if (snapshot.data.isEmpty) {
-                    return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          SizedBox(
-                            height: 100,
-                          ),
-                          Text(
-                            'Item no encontrado',
-                            textAlign: TextAlign.center,
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.black45),
-                          )
-                        ]);
+                    return NotFound();
                   }
                   return Expanded(
                     child: ListView.builder(
@@ -120,29 +84,11 @@ class _ItemListState extends State<ItemList> {
                         shrinkWrap: true,
                         itemCount: snapshot.data.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return ListTile(                            
-                            title: Text(snapshot.data[index].producto),
-                            contentPadding: EdgeInsets.only(
-                                bottom: 10, right: 10),
-                            trailing: Text(
-                              snapshot.data[index].precio,
-                              style: TextStyle(
-                                  color: Color(0xff49FE5B), fontSize: 15),
-                            ),
-                            leading: InkWell(
-                              child: new Container(
-                                height: 45,                                
-                                child: Image.network(
-                                  snapshot.data[index].image,
-                                  fit: BoxFit.cover,
-                                  width: 50,
-                                  height: 50,
-                                ),
-                              ),
-                            ),
-                            subtitle:
-                                Text(snapshot.data[index].cadenaComercial),
-                          );
+                          return Card(
+                              product: snapshot.data[index].producto,
+                              image: snapshot.data[index].image,
+                              supermarket: snapshot.data[index].cadenaComercial,
+                              price: snapshot.data[index].precio);
                         }),
                   );
                 },
@@ -151,6 +97,98 @@ class _ItemListState extends State<ItemList> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class NotFound extends StatelessWidget {
+  const NotFound({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 100,
+            ),
+            Text(
+              'Item no encontrado',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, color: Colors.black45),
+            )
+          ]),
+    );
+  }
+}
+
+class Arrow extends StatelessWidget {
+  const Arrow({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+              );
+            },
+            child: new Container(
+              child: Image.asset(
+                'assets/returnArrow.png',
+                color: Colors.black,
+                width: 25,
+                height: 25,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Card extends StatefulWidget {
+  final String product, price, image, supermarket;
+  const Card({Key key, this.product, this.price, this.image, this.supermarket})
+      : super(key: key);
+
+  @override
+  _CardState createState() => _CardState();
+}
+
+class _CardState extends State<Card> {
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(widget.product),
+      contentPadding: EdgeInsets.only(bottom: 10, right: 10),
+      trailing: Text(
+        widget.price,
+        style: TextStyle(color: Color(0xff49FE5B), fontSize: 15),
+      ),
+      leading: InkWell(
+        child: new Container(
+          height: 45,
+          child: Image.network(
+            widget.image,
+            fit: BoxFit.cover,
+            width: 50,
+            height: 50,
+          ),
+        ),
+      ),
+      subtitle: Text(widget.supermarket),
     );
   }
 }
