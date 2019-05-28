@@ -31,24 +31,23 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
         body: Center(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-      Image.asset(
-        'assets/frugalistLogo.png',
-        width: 50,
-      ),
-      SizedBox(
-        height: 20,
-      ),
-      Text(
-        'Frugalist',
-        style: TextStyle(
-          fontSize: 30,
-          color: Color(0xff4CFF5E),
-          fontWeight: FontWeight.w600
-        ),      
-        )
-    ])));
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+          Image.asset(
+            'assets/frugalistLogo.png',
+            width: 50,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Frugalist',
+            style: TextStyle(
+                fontSize: 30,
+                color: Color(0xff4CFF5E),
+                fontWeight: FontWeight.w600),
+          )
+        ])));
   }
 }

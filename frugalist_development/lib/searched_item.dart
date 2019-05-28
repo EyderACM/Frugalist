@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import './widgets/card.dart';
+import './widgets/notFoundAlert.dart';
+import './widgets/title.dart';
 
 class ItemList extends StatefulWidget {
   final String data;
@@ -51,7 +53,7 @@ class _ItemListState extends State<ItemList> {
                 height: 55,
               ),
               Arrow(),
-              Title(title: widget.data),
+              SecondaryTitle(title: widget.data),
               FutureBuilder(
                 future: _getItems(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -85,61 +87,6 @@ class _ItemListState extends State<ItemList> {
     );
   }
 }
-
-class NotFound extends StatelessWidget {
-  const NotFound({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              height: 100,
-            ),
-            Text(
-              'Item no encontrado',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, color: Colors.black45),
-            )
-          ]),
-    );
-  }
-}
-
-class Title extends StatefulWidget {
-  final String title;
-  @override
-  _TitleState createState() => _TitleState();
-  const Title({Key key, this.title}) : super(key: key);
-}
-
-class _TitleState extends State<Title> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          width: 300,
-          height: 100,
-          alignment: Alignment.topLeft,
-          padding: EdgeInsets.only(top: 30),
-          child: Text(
-            "${widget.title}",
-            textAlign: TextAlign.left,
-            style:
-                TextStyle(fontSize: 40, height: 1, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
 
 class Item {
   final String producto;
