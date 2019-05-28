@@ -30,7 +30,6 @@ class _ShoppingCartState extends State<ShoppingCart> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                                     SecondaryTitle(title: 'Carrito de Compras', height: 200),
-
                     ],
                   ),
                 ],
