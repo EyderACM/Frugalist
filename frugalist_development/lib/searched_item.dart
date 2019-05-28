@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'backArrow.dart';
+import './widgets/backArrow.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import './widgets/card.dart';
 
 class ItemList extends StatefulWidget {
   final String data;
@@ -68,7 +69,7 @@ class _ItemListState extends State<ItemList> {
                         shrinkWrap: true,
                         itemCount: snapshot.data.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return Card(
+                          return ItemCard(
                               product: snapshot.data[index].producto,
                               image: snapshot.data[index].image,
                               supermarket: snapshot.data[index].cadenaComercial,
@@ -138,40 +139,7 @@ class _TitleState extends State<Title> {
   }
 }
 
-class Card extends StatefulWidget {
-  final String product, price, image, supermarket;
-  const Card({Key key, this.product, this.price, this.image, this.supermarket})
-      : super(key: key);
 
-  @override
-  _CardState createState() => _CardState();
-}
-
-class _CardState extends State<Card> {
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(widget.product),
-      contentPadding: EdgeInsets.only(bottom: 10, right: 10),
-      trailing: Text(
-        widget.price,
-        style: TextStyle(color: Color(0xff49FE5B), fontSize: 15),
-      ),
-      leading: InkWell(
-        child: new Container(
-          height: 45,
-          child: Image.network(
-            widget.image,
-            fit: BoxFit.cover,
-            width: 50,
-            height: 50,
-          ),
-        ),
-      ),
-      subtitle: Text(widget.supermarket),
-    );
-  }
-}
 
 class Item {
   final String producto;

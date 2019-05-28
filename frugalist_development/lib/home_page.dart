@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
 import 'searched_item.dart';
-import 'shoppingCart.dart';
+import './widgets/shoppingCartButton.dart';
+import './widgets/mainTitle.dart';
+import './widgets/subtitle.dart';
+import './widgets/recomendations.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
@@ -42,9 +45,9 @@ class HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[Titulo(), ShoppingCartButton()],
+                    children: <Widget>[MainTitle(), ShoppingCartButton()],
                   ),
-                  Subtitulo(text: "Mérida, Yucatán"),
+                  Subtitle(text: "Mérida, Yucatán"),
                 ],
               ),
               Container(
@@ -82,7 +85,7 @@ class HomePageState extends State<HomePage> {
               SizedBox(
                 height: 10,
               ),
-              Subtitulo(text: "¿Qué te gusta?"),
+              Subtitle(text: "¿Qué te gusta?"),
               SizedBox(
                 height: 30,
               ),
@@ -147,166 +150,6 @@ class HomePageState extends State<HomePage> {
     } catch (e) {
       _showSnack("ERROR");
     }
-  }
-}
-
-class Titulo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 180,
-      alignment: Alignment.topLeft,
-      padding: EdgeInsets.only(top: 15),
-      child: Text(
-        "¿Qué producto quieres buscar?",
-        textAlign: TextAlign.left,
-        style:
-            TextStyle(fontSize: 35, height: 1.1, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-}
-
-class Subtitulo extends StatefulWidget {
-  final String text;
-
-  const Subtitulo({Key key, this.text}) : super(key: key);
-
-  @override
-  _SubtituloState createState() => _SubtituloState();
-}
-
-class _SubtituloState extends State<Subtitulo> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 180,
-      alignment: Alignment.topLeft,
-      padding: EdgeInsets.only(top: 20),
-      child: Text(
-        widget.text,
-        style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-            color: Color(0xff49FE5B)),
-      ),
-    );
-  }
-}
-
-class ShoppingCartButton extends StatelessWidget {
-  const ShoppingCartButton({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ShoppingCart(),
-            ),
-          );
-        },
-        child: Container(
-          padding: EdgeInsets.only(right: 10, top: 25),
-          child: Image.asset(
-            'assets/shopping.png',
-            color: Colors.black54,
-            width: 20,
-            height: 25,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CircleButton extends StatefulWidget {
-  final String buttonFile, search;
-
-  const CircleButton({Key key, this.buttonFile, this.search}) : super(key: key);
-
-  @override
-  _CircleButtonState createState() => _CircleButtonState();
-}
-
-class _CircleButtonState extends State<CircleButton> {
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        var route = new MaterialPageRoute(
-          builder: (BuildContext context) => new ItemList(data: widget.search),
-        );
-        Navigator.of(context).push(route);
-      },
-      child: new Container(
-        width: 60,
-        height: 60,
-        padding: const EdgeInsets.all(18.0),
-        decoration:
-            new BoxDecoration(shape: BoxShape.circle, color: Colors.black12),
-        child: Image.asset(
-          'assets/${widget.buttonFile}.png',
-          color: Colors.black54,
-          width: 150,
-          height: 100,
-        ),
-      ),
-    );
-  }
-}
-
-class Recomendations extends StatelessWidget {
-  const Recomendations({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              CircleButton(
-                buttonFile: "chicken",
-                search: "Pollo",
-              ),
-              CircleButton(
-                buttonFile: "milk",
-                search: "Leche en polvo",
-              ),
-              CircleButton(
-                buttonFile: "fish",
-                search: "Pescado",
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              CircleButton(
-                buttonFile: "eggs",
-                search: "Huevo",
-              ),
-              CircleButton(
-                buttonFile: "carrot",
-                search: "Zanahoria",
-              ),
-              CircleButton(
-                buttonFile: "apple",
-                search: "Manzana",
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
   }
 }
 
