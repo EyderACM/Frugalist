@@ -53,7 +53,7 @@ class _ItemListState extends State<ItemList> {
                 height: 55,
               ),
               Arrow(),
-              SecondaryTitle(title: widget.data),
+              SecondaryTitle(title: widget.data, height: double.parse('100')),
               FutureBuilder(
                 future: _getItems(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {

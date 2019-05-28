@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class SecondaryTitle extends StatefulWidget {
   final String title;
+  final double height;
   @override
   _SecondaryTitleState createState() => _SecondaryTitleState();
-  const SecondaryTitle({Key key, this.title}) : super(key: key);
+  const SecondaryTitle({Key key, this.title, this.height}) : super(key: key);
 }
 
 class _SecondaryTitleState extends State<SecondaryTitle> {
@@ -15,7 +16,7 @@ class _SecondaryTitleState extends State<SecondaryTitle> {
       children: <Widget>[
         Container(
           width: 300,
-          height: 100,
+          height: widget.height,
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(top: 30),
           child: Text(

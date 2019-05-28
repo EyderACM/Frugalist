@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './widgets/backArrow.dart';
+import './widgets/title.dart';
 
 class ShoppingCart extends StatefulWidget {
   @override
@@ -28,20 +29,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        width: 300,
-                        height: 200,
-                        alignment: Alignment.topLeft,
-                        padding: EdgeInsets.only(top: 30),
-                        child: Text(
-                          "Carrito de Compras",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontSize: 40,
-                              height: 1,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                                    SecondaryTitle(title: 'Carrito de Compras', height: 200),
+
                     ],
                   ),
                 ],
