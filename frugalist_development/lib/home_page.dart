@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
 import 'searched_item.dart';
-import './widgets/shoppingCartButton.dart';
 import './widgets/mainTitle.dart';
 import './widgets/subtitle.dart';
 import './widgets/recomendations.dart';
@@ -45,7 +44,7 @@ class HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[MainTitle(), ShoppingCartButton()],
+                    children: <Widget>[MainTitle()],
                   ),
                   Subtitle(text: "Mérida, Yucatán"),
                 ],
