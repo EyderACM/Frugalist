@@ -18,7 +18,7 @@ const morgan = require('morgan');
 const app = express();
 const path = require('path');
 
-const PORT = process.env.PORT || 8082;
+const PORT = process.env.PORT || 8080;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
