@@ -13,7 +13,7 @@
     "eslint": "^5.16.0",
     "eslint-config-equimper": "^2.2.2",
     "eslint-config-prettier": "^4.2.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "nodemon": "^1.19.0",
